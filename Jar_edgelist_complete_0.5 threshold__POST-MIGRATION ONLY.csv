@@ -1,0 +1,32 @@
+Source,Target,weight,distance_km,Site1_Time,Site2_Time,lat,long,Time,group
+C.W. Cooper,Baehr South,0.510931809,57,Post-Migration,Post-Migration,40.39657032,-90.05890968,2,Oneota
+C.W. Cooper,Ten Mile Creek,0.522142697,48,Post-Migration,Post-Migration,40.39657032,-90.05890968,2,Oneota
+C.W. Cooper,Lawrenz Gun Club,0.548268447,38,Post-Migration,Pre-Migration,40.39657032,-90.05890968,2,Oneota
+Crable,Ten Mile Creek,0.564191461,68,Post-Migration,Post-Migration,40.18528804,-90.21745198,2,Cohabitation
+Baehr South,Morton Village,0.585699492,54,Post-Migration,Post-Migration,39.91664509,-90.56770912,2,Mississippian
+Ten Mile Creek,Lawrenz Gun Club,0.601430675,4,Post-Migration,Pre-Migration,40.73223864,-89.52353409,2,Mississippian
+Baehr South,Ten Mile Creek,0.632496946,8,Post-Migration,Post-Migration,39.91664509,-90.56770912,2,Mississippian
+Lawrenz Gun Club,Ten Mile Creek,0.638411916,4,Pre-Migration,Post-Migration,40.05832232,-90.32909375,2,Mississippian
+Crable,Lawrenz Gun Club,0.642356945,13,Post-Migration,Pre-Migration,40.18528804,-90.21745198,2,Cohabitation
+Morton Village,Ten Mile Creek,0.658112066,52,Post-Migration,Post-Migration,40.37138738,-90.08812845,2,Cohabitation
+Star Bridge,Ten Mile Creek,0.682967826,7,Post-Migration,Post-Migration,39.97553192,-90.5740873,2,Mississippian
+Morton Village,Lawrenz Gun Club,0.686649323,35,Post-Migration,Pre-Migration,40.37138738,-90.08812845,2,Cohabitation
+Baehr South,Crable,0.695371632,37,Post-Migration,Post-Migration,39.91664509,-90.56770912,2,Mississippian
+C.W. Cooper,Star Bridge,0.707162862,53,Post-Migration,Post-Migration,40.39657032,-90.05890968,2,Oneota
+Ten Mile Creek,Star Bridge,0.753321239,7,Post-Migration,Post-Migration,40.73223864,-89.52353409,2,Mississippian
+Crable,C.W. Cooper,0.788939216,23,Post-Migration,Post-Migration,40.18528804,-90.21745198,2,Cohabitation
+Lawrenz Gun Club,Baehr South,0.791535729,22,Pre-Migration,Post-Migration,40.05832232,-90.32909375,2,Mississippian
+Morton Village,Baehr South,0.793410776,54,Post-Migration,Post-Migration,40.37138738,-90.08812845,2,Cohabitation
+Baehr South,Lawrenz Gun Club,0.797124061,22,Post-Migration,Pre-Migration,39.91664509,-90.56770912,2,Mississippian
+Star Bridge,Lawrenz Gun Club,0.823846851,19,Post-Migration,Pre-Migration,39.97553192,-90.5740873,2,Mississippian
+Crable,Star Bridge,0.832050268,32,Post-Migration,Post-Migration,40.18528804,-90.21745198,2,Cohabitation
+Morton Village,Star Bridge,0.836845703,50,Post-Migration,Post-Migration,40.37138738,-90.08812845,2,Cohabitation
+Star Bridge,Baehr South,0.840275915,58,Post-Migration,Post-Migration,39.97553192,-90.5740873,2,Mississippian
+Crable,Baehr South,0.846340561,37,Post-Migration,Post-Migration,40.18528804,-90.21745198,2,Cohabitation
+C.W. Cooper,Crable,0.847374615,23,Post-Migration,Post-Migration,40.39657032,-90.05890968,2,Oneota
+Crable,Morton Village,0.85407682,19,Post-Migration,Post-Migration,40.18528804,-90.21745198,2,Cohabitation
+C.W. Cooper,Morton Village,0.854969029,34,Post-Migration,Post-Migration,40.39657032,-90.05890968,2,Oneota
+Baehr South,Star Bridge,0.88241582,58,Post-Migration,Post-Migration,39.91664509,-90.56770912,2,Mississippian
+Morton Village,C.W. Cooper,0.935677353,34,Post-Migration,Post-Migration,40.37138738,-90.08812845,2,Cohabitation
+Lawrenz Gun Club,Star Bridge,0.943183418,19,Pre-Migration,Post-Migration,40.05832232,-90.32909375,2,Mississippian
+Morton Village,Crable,1,19,Post-Migration,Post-Migration,40.37138738,-90.08812845,2,Cohabitation

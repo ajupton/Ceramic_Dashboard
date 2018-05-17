@@ -1,0 +1,82 @@
+Source,Target,weight,distance_km,Site1_Time,Site2_Time,lat,long,Time,group
+Walsh,Emmons Village,0.504385695,45,Pre-Migration,Pre-Migration,39.84572853,-90.6488686,1,Mississippian
+Walsh,Kingston Lake,0.519491228,5,Pre-Migration,Pre-Migration,39.84572853,-90.6488686,1,Mississippian
+Eveland,Buckeye Bend,0.519805488,58,Pre-Migration,Pre-Migration,40.34591803,-90.1180906,1,Mississippian
+Larson,Orendorf D,0.521599069,19,Pre-Migration,Pre-Migration,40.34151532,-90.13555879,1,Mississippian
+Houston Shryock,Emmons Village,0.521821953,39,Pre-Migration,Pre-Migration,40.52620698,-89.87942524,1,Mississippian
+Myer-Dickson,Kingston Lake,0.527057185,33,Pre-Migration,Pre-Migration,40.35062467,-90.11864358,1,Mississippian
+Eveland,Kingston Lake,0.53592857,33,Pre-Migration,Pre-Migration,40.34591803,-90.1180906,1,Mississippian
+Lawrenz Gun Club,Kingston Lake,0.536759881,62,Pre-Migration,Pre-Migration,40.05832232,-90.32909375,1,Mississippian
+Orendorf C,Emmons Village,0.550573954,31,Pre-Migration,Pre-Migration,40.48685729,-89.94891242,1,Mississippian
+Larson,Kingston Lake,0.55704217,35,Pre-Migration,Pre-Migration,40.34151532,-90.13555879,1,Mississippian
+Kingston Lake,Emmons Village,0.558518826,43,Pre-Migration,Pre-Migration,40.55446882,-89.7487302,1,Mississippian
+Eveland,Emmons Village,0.568498256,13,Pre-Migration,Pre-Migration,40.34591803,-90.1180906,1,Mississippian
+Buckeye Bend,Kingston Lake,0.589767613,38,Pre-Migration,Pre-Migration,40.35347896,-90.20106751,1,Mississippian
+Emmons Village,Kingston Lake,0.59640422,43,Pre-Migration,Pre-Migration,40.21173691,-90.20484382,1,Mississippian
+Orendorf D,Orendorf C,0.603332408,0,Pre-Migration,Pre-Migration,40.48685729,-89.94891242,1,Mississippian
+Buckeye Bend,Lawrenz Gun Club,0.605263786,29,Pre-Migration,Pre-Migration,40.35347896,-90.20106751,1,Mississippian
+Kingston Lake,Orendorf D,0.609703892,14,Pre-Migration,Pre-Migration,40.55446882,-89.7487302,1,Mississippian
+Orendorf D,Kingston Lake,0.619837698,14,Pre-Migration,Pre-Migration,40.48685729,-89.94891242,1,Mississippian
+Fouts Village,Buckeye Bend,0.628899947,69,Pre-Migration,Pre-Migration,40.36367175,-90.09937654,1,Mississippian
+Eveland,Larson,0.643694251,15,Pre-Migration,Pre-Migration,40.34591803,-90.1180906,1,Mississippian
+Eveland,Myer-Dickson,0.646792658,1,Pre-Migration,Pre-Migration,40.34591803,-90.1180906,1,Mississippian
+Houston Shryock,Orendorf D,0.649000494,58,Pre-Migration,Pre-Migration,40.52620698,-89.87942524,1,Mississippian
+Houston Shryock,Kingston Lake,0.662500658,6,Pre-Migration,Pre-Migration,40.52620698,-89.87942524,1,Mississippian
+Orendorf D,Lawrenz Gun Club,0.673408038,47,Pre-Migration,Pre-Migration,40.48685729,-89.94891242,1,Mississippian
+Lawrenz Gun Club,Buckeye Bend,0.677369731,29,Pre-Migration,Pre-Migration,40.05832232,-90.32909375,1,Mississippian
+Myer-Dickson,Buckeye Bend,0.684002968,58,Pre-Migration,Pre-Migration,40.35062467,-90.11864358,1,Mississippian
+Buckeye Bend,Orendorf D,0.68708823,22,Pre-Migration,Pre-Migration,40.35347896,-90.20106751,1,Mississippian
+Buckeye Bend,Walsh,0.690121876,56,Pre-Migration,Pre-Migration,40.35347896,-90.20106751,1,Mississippian
+Eveland,Walsh,0.694644522,61,Pre-Migration,Pre-Migration,40.34591803,-90.1180906,1,Mississippian
+Buckeye Bend,Myer-Dickson,0.696354599,58,Pre-Migration,Pre-Migration,40.35347896,-90.20106751,1,Mississippian
+Larson,Orendorf C,0.696998709,19,Pre-Migration,Pre-Migration,40.34151532,-90.13555879,1,Mississippian
+Kingston Lake,Orendorf C,0.69898615,14,Pre-Migration,Pre-Migration,40.55446882,-89.7487302,1,Mississippian
+Walsh,Buckeye Bend,0.723305197,56,Pre-Migration,Pre-Migration,39.84572853,-90.6488686,1,Mississippian
+Houston Shryock,Lawrenz Gun Club,0.725327285,54,Pre-Migration,Pre-Migration,40.52620698,-89.87942524,1,Mississippian
+Emmons Village,Buckeye Bend,0.729055694,12,Pre-Migration,Pre-Migration,40.21173691,-90.20484382,1,Mississippian
+Emmons Village,Lawrenz Gun Club,0.729910825,16,Pre-Migration,Pre-Migration,40.21173691,-90.20484382,1,Mississippian
+Kingston Lake,Lawrenz Gun Club,0.73509311,62,Pre-Migration,Pre-Migration,40.55446882,-89.7487302,1,Mississippian
+Houston Shryock,Orendorf C,0.747886571,58,Pre-Migration,Pre-Migration,40.52620698,-89.87942524,1,Mississippian
+Orendorf D,Walsh,0.749213372,71,Pre-Migration,Pre-Migration,40.48685729,-89.94891242,1,Mississippian
+Larson,Buckeye Bend,0.756139851,49,Pre-Migration,Pre-Migration,40.34151532,-90.13555879,1,Mississippian
+Eveland,Orendorf C,0.762270246,17,Pre-Migration,Pre-Migration,40.34591803,-90.1180906,1,Mississippian
+Walsh,Lawrenz Gun Club,0.769516335,30,Pre-Migration,Pre-Migration,39.84572853,-90.6488686,1,Mississippian
+Myer-Dickson,Lawrenz Gun Club,0.771873919,31,Pre-Migration,Pre-Migration,40.35062467,-90.11864358,1,Mississippian
+Kingston Lake,Walsh,0.785828609,5,Pre-Migration,Pre-Migration,40.55446882,-89.7487302,1,Mississippian
+Orendorf D,Myer-Dickson,0.794532045,17,Pre-Migration,Pre-Migration,40.48685729,-89.94891242,1,Mississippian
+Myer-Dickson,Orendorf C,0.798048329,17,Pre-Migration,Pre-Migration,40.35062467,-90.11864358,1,Mississippian
+Lawrenz Gun Club,Orendorf C,0.798779578,47,Pre-Migration,Pre-Migration,40.05832232,-90.32909375,1,Mississippian
+Larson,Lawrenz Gun Club,0.799203359,30,Pre-Migration,Pre-Migration,40.34151532,-90.13555879,1,Mississippian
+Lawrenz Gun Club,Walsh,0.811600406,30,Pre-Migration,Pre-Migration,40.05832232,-90.32909375,1,Mississippian
+Fouts Village,Orendorf C,0.822607571,14,Pre-Migration,Pre-Migration,40.36367175,-90.09937654,1,Mississippian
+Fouts Village,Walsh,0.822725308,62,Pre-Migration,Pre-Migration,40.36367175,-90.09937654,1,Mississippian
+Larson,Walsh,0.8231463,59,Pre-Migration,Pre-Migration,40.34151532,-90.13555879,1,Mississippian
+Myer-Dickson,Walsh,0.826344805,61,Pre-Migration,Pre-Migration,40.35062467,-90.11864358,1,Mississippian
+Emmons Village,Walsh,0.836200904,45,Pre-Migration,Pre-Migration,40.21173691,-90.20484382,1,Mississippian
+Emmons Village,Myer-Dickson,0.836563509,13,Pre-Migration,Pre-Migration,40.21173691,-90.20484382,1,Mississippian
+Fouts Village,Myer-Dickson,0.838968002,15,Pre-Migration,Pre-Migration,40.36367175,-90.09937654,1,Mississippian
+Orendorf C,Lawrenz Gun Club,0.839985111,47,Pre-Migration,Pre-Migration,40.48685729,-89.94891242,1,Mississippian
+Larson,Myer-Dickson,0.847341774,15,Pre-Migration,Pre-Migration,40.34151532,-90.13555879,1,Mississippian
+Kingston Lake,Myer-Dickson,0.850078917,33,Pre-Migration,Pre-Migration,40.55446882,-89.7487302,1,Mississippian
+Lawrenz Gun Club,Myer-Dickson,0.850480767,31,Pre-Migration,Pre-Migration,40.05832232,-90.32909375,1,Mississippian
+Houston Shryock,Walsh,0.853330674,3,Pre-Migration,Pre-Migration,40.52620698,-89.87942524,1,Mississippian
+Emmons Village,Orendorf C,0.853536496,31,Pre-Migration,Pre-Migration,40.21173691,-90.20484382,1,Mississippian
+Houston Shryock,Myer-Dickson,0.856383835,24,Pre-Migration,Pre-Migration,40.52620698,-89.87942524,1,Mississippian
+Walsh,Myer-Dickson,0.862738924,61,Pre-Migration,Pre-Migration,39.84572853,-90.6488686,1,Mississippian
+Buckeye Bend,Larson,0.866854729,49,Pre-Migration,Pre-Migration,40.35347896,-90.20106751,1,Mississippian
+Kingston Lake,Buckeye Bend,0.86804542,38,Pre-Migration,Pre-Migration,40.55446882,-89.7487302,1,Mississippian
+Houston Shryock,Buckeye Bend,0.880963025,28,Pre-Migration,Pre-Migration,40.52620698,-89.87942524,1,Mississippian
+Walsh,Orendorf C,0.885547689,71,Pre-Migration,Pre-Migration,39.84572853,-90.6488686,1,Mississippian
+Fouts Village,Lawrenz Gun Club,0.902711721,33,Pre-Migration,Pre-Migration,40.36367175,-90.09937654,1,Mississippian
+Orendorf C,Myer-Dickson,0.939679902,17,Pre-Migration,Pre-Migration,40.48685729,-89.94891242,1,Mississippian
+Orendorf D,Larson,0.984022023,19,Pre-Migration,Pre-Migration,40.48685729,-89.94891242,1,Mississippian
+Orendorf C,Larson,0.988317361,19,Pre-Migration,Pre-Migration,40.48685729,-89.94891242,1,Mississippian
+Orendorf C,Walsh,1,71,Pre-Migration,Pre-Migration,40.48685729,-89.94891242,1,Mississippian
+Walsh,Larson,1,59,Pre-Migration,Pre-Migration,39.84572853,-90.6488686,1,Mississippian
+Lawrenz Gun Club,Larson,1,30,Pre-Migration,Pre-Migration,40.05832232,-90.32909375,1,Mississippian
+Emmons Village,Larson,1,12,Pre-Migration,Pre-Migration,40.21173691,-90.20484382,1,Mississippian
+Myer-Dickson,Larson,1,15,Pre-Migration,Pre-Migration,40.35062467,-90.11864358,1,Mississippian
+Kingston Lake,Larson,1,35,Pre-Migration,Pre-Migration,40.55446882,-89.7487302,1,Mississippian
+Fouts Village,Larson,1,34,Pre-Migration,Pre-Migration,40.36367175,-90.09937654,1,Mississippian
+Houston Shryock,Larson,1,26,Pre-Migration,Pre-Migration,40.52620698,-89.87942524,1,Mississippian
+Orendorf D,Buckeye Bend,1,22,Pre-Migration,Pre-Migration,40.48685729,-89.94891242,1,Mississippian

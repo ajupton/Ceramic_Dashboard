@@ -1,0 +1,30 @@
+Source,Target,weight,distance_km,Site1_Time,Site2_Time,lat,long,Time,group
+Crable,Baehr South,1,37,Post-Migration,Post-Migration,40.18528804,-90.21745198,2,Cohabitation
+Lawrenz Gun Club,Baehr South,1,22,Pre-Migration,Post-Migration,40.05832232,-90.32909375,2,Mississippian
+Star Bridge,Baehr South,1,58,Post-Migration,Post-Migration,39.97553192,-90.5740873,2,Mississippian
+Ten Mile Creek,Baehr South,1,8,Post-Migration,Post-Migration,40.73223864,-89.52353409,2,Mississippian
+Morton Village,Baehr South,0.950175121,54,Post-Migration,Post-Migration,40.37138738,-90.08812845,2,Cohabitation
+Baehr South,Star Bridge,0.911660704,58,Post-Migration,Post-Migration,39.91664509,-90.56770912,2,Mississippian
+Ten Mile Creek,Star Bridge,0.889140235,7,Post-Migration,Post-Migration,40.73223864,-89.52353409,2,Mississippian
+Crable,Star Bridge,0.879598914,32,Post-Migration,Post-Migration,40.18528804,-90.21745198,2,Cohabitation
+Lawrenz Gun Club,Star Bridge,0.86336747,19,Pre-Migration,Post-Migration,40.05832232,-90.32909375,2,Mississippian
+Morton Village,Crable,0.83060194,19,Post-Migration,Post-Migration,40.37138738,-90.08812845,2,Cohabitation
+Morton Village,Star Bridge,0.779583053,50,Post-Migration,Post-Migration,40.37138738,-90.08812845,2,Cohabitation
+Baehr South,Ten Mile Creek,0.740272522,8,Post-Migration,Post-Migration,39.91664509,-90.56770912,2,Mississippian
+Star Bridge,Crable,0.739019,32,Post-Migration,Post-Migration,39.97553192,-90.5740873,2,Mississippian
+Baehr South,Crable,0.738066417,37,Post-Migration,Post-Migration,39.91664509,-90.56770912,2,Mississippian
+Ten Mile Creek,Crable,0.729142376,68,Post-Migration,Post-Migration,40.73223864,-89.52353409,2,Mississippian
+Lawrenz Gun Club,Crable,0.725020988,13,Pre-Migration,Post-Migration,40.05832232,-90.32909375,2,Mississippian
+Star Bridge,Ten Mile Creek,0.701574132,7,Post-Migration,Post-Migration,39.97553192,-90.5740873,2,Mississippian
+Crable,Morton Village,0.664015188,19,Post-Migration,Post-Migration,40.18528804,-90.21745198,2,Cohabitation
+Ten Mile Creek,Lawrenz Gun Club,0.635186893,4,Post-Migration,Pre-Migration,40.73223864,-89.52353409,2,Mississippian
+Lawrenz Gun Club,Ten Mile Creek,0.633932187,4,Pre-Migration,Post-Migration,40.05832232,-90.32909375,2,Mississippian
+Baehr South,Lawrenz Gun Club,0.617703859,22,Post-Migration,Pre-Migration,39.91664509,-90.56770912,2,Mississippian
+Star Bridge,Lawrenz Gun Club,0.595655193,19,Post-Migration,Pre-Migration,39.97553192,-90.5740873,2,Mississippian
+Baehr South,Morton Village,0.591771568,54,Post-Migration,Post-Migration,39.91664509,-90.56770912,2,Mississippian
+Crable,Ten Mile Creek,0.574682903,68,Post-Migration,Post-Migration,40.18528804,-90.21745198,2,Cohabitation
+Star Bridge,Morton Village,0.542477019,50,Post-Migration,Post-Migration,39.97553192,-90.5740873,2,Mississippian
+Lawrenz Gun Club,Morton Village,0.534662846,35,Pre-Migration,Post-Migration,40.05832232,-90.32909375,2,Mississippian
+Ten Mile Creek,Morton Village,0.533000121,52,Post-Migration,Post-Migration,40.73223864,-89.52353409,2,Mississippian
+Crable,Lawrenz Gun Club,0.527295775,13,Post-Migration,Pre-Migration,40.18528804,-90.21745198,2,Cohabitation
+Morton Village,Lawrenz Gun Club,0.517049723,35,Post-Migration,Pre-Migration,40.37138738,-90.08812845,2,Cohabitation

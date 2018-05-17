@@ -1,0 +1,320 @@
+---
+title: "Ceramic_Dashboard"
+author: "Andy Upton"
+date: "1/12/2018"
+output: 
+ 
+  flexdashboard::flex_dashboard:
+    storyboard: true
+    social: menu
+    source_code: embed
+    theme: flatly
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(cowplot)
+library(ggridges)
+library(shiny)
+library(plotly)
+library(ggsci)
+library(threejs)
+library(igraph)
+library(colorRamps)
+```
+ 
+```{r global, include=FALSE}
+#load in the ceramic data in 'global' chunk so it can be shared by all users of the dashboard
+jars <- read.csv("jars_cont.csv") 
+jnames <- names(jars)
+plates <- read.csv("plates_cont.csv")
+pnames <- names(plates)
+jel <- read_csv("Jar_edgelist_complete_0.5 threshold_Site match deleted_Time 1 and 2 only.csv")
+jelpre <- read_csv("Jar_edgelist_complete_0.5 threshold__PRE-MIGRATION ONLY.csv")
+jelpost <- read_csv("Jar_edgelist_complete_0.5 threshold__POST-MIGRATION ONLY.csv")
+```
+
+Introduction {.storyboard}
+=======================================================================
+
+### Welcome to the Late Prehistoric central Illinois River valley (circa 1200 - 1450 A.D.)
+
+```{r}
+#convert to data frame
+jel <- as.data.frame(jel)
+jelpre <- as.data.frame(jelpre)
+jelpost <- as.data.frame(jelpost)
+
+#convert character columns to factor to enable plotting features
+cols <- c(1, 2, 5, 6, 10)
+jel[cols] <- lapply(jel[cols], factor)
+jelpre[cols] <- lapply(jelpre[cols], factor)
+jelpost[cols] <- lapply(jelpost[cols], factor)
+
+#create igraph object from data frames
+jg <- graph_from_data_frame(jel, directed = TRUE)
+jgpre <- graph_from_data_frame(jelpre, directed = TRUE)
+jgpost <- graph_from_data_frame(jelpost, directed = TRUE)
+
+#create warm color scale function for edges (too many edges for a color palette)
+#yellow is a weaker tie while red is a stronger tie
+colfunc <- colorRampPalette(c("yellow", "orange", "red"))
+
+#create a vector of sizes for the vertices' labels
+vsizejg <- rep.int(.25, 18)
+vsizepre <- rep.int(.25, 12)
+vsizepost <- rep.int(.25, 7)
+
+#3D graph of jars across time
+graphjs(jg, edge.color = colfunc(112), edge.width = 2.5, vertex.shape = V(jg)$name, vertex.size = vsizejg, edge.alpha = 0.7)
+```
+
+***
+Through this interactive online dashboard, you will be able to explore a database of over 1,300 ceramic artifacts from nearly two dozen settlements in what archaeologists refer to as the Late Prehistoric central Illinois River valley or CIRV. This period saw the rise of agricultural chiefdoms in the region beginning in the 11th and 12th centuries A.D. and later an in-migration of a tribal group from the north around A.D. 1300. 
+
+This dashboard will take you step by step to learn how it is that archaeologists can model social relationships between settlements using archaeological data. 
+
+Click to drag or scroll to zoom in and out of the 3-Dimensional network of Late Prehistoric archaeological settlements to the left. Do any of the names sounds familiar? Many settlements were named after the family that owned the land on which the sites were discovered. 
+
+When you're ready to move on and learn more, simply press the right arrow on your keyboard or use the mouse to select the different pages or tabs above. 
+
+### Map of sites 
+![LiDAR map courtesy ISGS](CIRV_map.png)
+
+***
+Many town and village settlements were occupied during the Late Prehistoric period (1200 - 1450 A.D.). Not all of these communities were occupied at the same time. As you can see, most sites are located on the western bluff top along the Illinois River. This afforded access to the rich soil in the surrounding prairie and forest to the west to grow crops like corn, beans, and squash and to hunt, fish, and gather an abundance of wild foods. 
+
+The bluff top locations may have also served another purpose - defense against any unwelcome visitors travelling along the river. 
+
+### Site Photos
+![Images courtesy Dickson Mounds Museum, Kelvin Sampson, and the Western Illinois Archaeological Research Center](CIRV_sites.png)
+
+***
+Depicted here (clockwise from upper left) are an artist's rendering of Orendorf Settlement D, an artists' rendering of Larson, a depiction of Morton Village from archaeological and geophysical data, an aerial photo  of Star Bridge, and an aerial photo of Buckeye Bend. 
+
+Settlements include palisaded towns, often with large platform and burial mounds (such as Star Bridge, Larson, and Orendorf), and smaller villages (such as Buckeye Bend and Morton Village). 
+
+### Plate Designs
+![Images courtesy Dickson Mounds Museum and the Western Illinois Archaeological Research Center; not to scale](Plate_designs.png)
+
+***
+
+Jar Dataset at a Glance {.storyboard}
+======================================================================
+
+### Jar Attributes
+![Images courtesy Dickson Mounds Museum and the Western Illinois Archaeological Research Center; not to scale](Jar_attributes.png)
+
+***
+Domestic jars served a very important function - cooking. Soups and stews were very common meals made in these vessels. You can also use them prepare corn via nixtamalization, render fat, gather water, or perhaps store seeds or other goods. 
+
+The attributes to the left allow archaeologists to study changes in how these vessels were made over time and to uncover differences in how communities of potters made them at different settlements. These changes and differences allow archaeologists to discover how closely related the communities may have been to each other and to model cultural transmission over time and across space.  
+
+### Number of Jars by Site
+
+```{r, fig.width = 20, fig.height=20}
+jhist <- jars %>%
+          group_by(Site)%>%
+            ggplot() + geom_histogram(aes(x = Site, fill = ..count..), stat = "count") + 
+              theme(axis.text.x = element_text(angle = 20, hjust = 1)) + 
+              ylab("") + 
+              scale_fill_gradient2(low=("green4"), high="darkgreen", mid = 1) + 
+              xlab("")
+
+ggplotly(jhist)
+```
+
+***
+Archaeologists have recovered many jars from some settlements and few from others. This is both a product of the size and length of occupation of the settlement as well as the intensity of archaeological excavation or looting. 
+
+### Jar Density ridgeline plots
+
+```{r, fig.width=15, fig.height=15}
+#Gather Jar dataset
+jGathered <- gather(jars, Attribute, Value, Orifice:MaxTrailing)
+
+#Plot jar density ridgeline
+ggplot(jGathered, aes(x = Value, y = Site)) + 
+    geom_density_ridges() + 
+    facet_wrap(~Attribute, scale = "free", ncol = 3) + 
+    theme(axis.text.y = element_text(size=11), strip.text.x = element_text(size=13)) + 
+    xlab("") + ylab("")
+```
+
+***
+These density ridgeline plots show how jar attributes are distributed at each settlement Remember, these vessels were all made by hand. Yet, certain attributes are largely consistent across settlements while others tend to vary quite a bit. 
+
+Jar Attribute Explorer {.storyboard}
+======================================================================
+
+Inputs {.sidebar} 
+-----------------------------------------------------------------------
+
+```{r}
+headerPanel("Jar Attribute Explorer")
+
+#Select variable for y-axis
+ selectInput("jy", 
+             label = "Jar attribute on Y-axis:", 
+             choices = c("Orifice Diameter (cm)" = "Orifice",
+                         "Lip Thickness (mm)" = "MaxLip",
+                         "Thickness at Shoulder (mm)" = "MaxShoulder",
+                         "Wall Thickness Below Shoulder (mm)" = "MaxWall",
+                         "Rim Angle (90 degrees = vertical)" = "RimAngle",
+                         "Cord-marking Thickness (mm)" = "MaxCM",
+                         "Trailing Thickness (mm)" = "MaxTrailing"), 
+              selected = "RimAngle")
+
+#Select variable for x-axis
+  selectInput("jx", 
+             label = "Jar attribute on X-axis:", 
+             choices = c("Orifice Diameter (cm)" = "Orifice",
+                         "Lip Thickness (mm)" = "MaxLip",
+                         "Thickness at Shoulder (mm)" = "MaxShoulder",
+                         "Wall Thickness Below Shoulder (mm)" = "MaxWall",
+                         "Rim Angle (90 degrees = vertical)" = "RimAngle",
+                         "Cord-marking Thickness (mm)" = "MaxCM",
+                         "Trailing Thickness (mm)" = "MaxTrailing"), 
+              selected = "Orifice") 
+  
+#Slider for plot height
+  sliderInput('plotHeight', 'Height of plot (in pixels)', 
+                    min = 100, max = 2000, value = 500)
+```
+
+### Exploring Jar Attribute Associations {data-commentary-width=200}
+  
+```{r}
+renderPlotly({
+  
+  #Build plot with ggplot syntax 
+  pj <- ggplot(data = jars, aes_string(x = input$jx, y = input$jy, color = "Site")) +
+          geom_point() +       
+          theme(legend.title = element_blank()) + 
+          scale_color_igv()
+
+  ggplotly(pj) %>%
+      layout(height = input$plotHeight, autosize = TRUE, legend = list(font = list(size = 12))) 
+})
+```
+
+*** 
+Interact by selecting an attribute for each axis. You can change the plot height if it doesn't fit in your window. Then hover over the plot for more options. 
+
+Double-click on an archaeological settkement name in the legend to isolate that settlement's entries. Once isolated, you can click on other settlememts in the legend to add them one at a time. Double-click on the isolated again or select different attributes to view all settlement entries again. 
+
+You can also zoom in or out, compare data on hover, select certain entries, or take a picture if you like. If you get lost, select the autoscale or reset axes options. 
+
+There's a lot of missing data in the dataset since these are archaeological artifacts.
+
+Plate Dataset at a Glance {.storyboard}
+======================================================================
+
+### Plate Attributes
+![Images courtesy Dickson Mounds Museum, the Western Illinois Archaeological Research Center, J.O'Gorman and J. Lieto; not to scale](Plate_attributes.png)
+
+***
+Plates are a vessel class largely unique to the Late Prehistoric period. This vessel type is thought to have primarily been used to serve food, especially during important meals such as feasts. Don't these vessels look strikingly similar to the kinds of plates you might have your food served in at a nice restaurant today?
+
+The attributes to the left allow archaeologists to study changes in how these vessels were made over time and to uncover differences in how communities of potters made them at different sites. These changes and differences allow archaeologists to discover how closely related the communities may have been to each other and to model cultural transmission.
+
+### Number of Plates by Site
+
+```{r, fig.width = 15, fig.height=15}
+phist <- plates %>%
+          group_by(Site)%>%
+            ggplot() + geom_histogram(aes(x = Site, fill = ..count..), stat = "count") + 
+              theme(axis.text.x = element_text(angle = 20, hjust = 1)) + 
+              ylab("") + 
+              scale_fill_gradient2() + 
+              xlab("")
+
+ggplotly(phist)
+```
+
+***
+Archaeologists have recovered many jars from some settlements and few from others. This is both a product of the size and length of occupation of the settlement as well as the intensity of archaeological excavation or looting.  
+
+### Plate Density ridgeline plots
+
+```{r, fig.width=15, fig.height=15}
+#Gather Plate dataset
+pGathered <- gather(plates, Attribute, Value, MaxDiameter:MaxTrailing)
+
+#Plot jar density ridgeline
+    ggplot(pGathered, aes(x = Value, y = Site)) + 
+        geom_density_ridges() + 
+        facet_wrap(~Attribute, scale = "free", ncol = 3) + 
+        theme(axis.text.y = element_text(size=11), strip.text.x = element_text(size=13)) +
+        xlab("") + 
+        ylab("")
+```
+
+***
+These density ridgeline plots show how plate attributes are distributed at each site. Remember, these vessels were all made by hand. Yet, certain attributes are largely consistent across sites while others tend to vary quite a bit.
+
+Plate Attribute Explorer {.storyboard}
+======================================================================
+
+Inputs {.sidebar} 
+-----------------------------------------------------------------------
+
+```{r}
+headerPanel("Plate Attribute Explorer")
+
+#Select variable for y-axis
+ selectInput("py", 
+             label = "Plate attribute on Y-axis:", 
+             choices = c("Plate Diameter (cm)" = "MaxDiameter",
+                         "Flare Length (mm)" = "FlareLength",
+                         "Thickness of Rim (mm)" = "RimThick",
+                         "Thickness Below Flare (mm)" = "ThickBelowFlare",
+                         "Flare Angle (90 degrees = vertical)" = "FlareAngle",
+                         "Incising Thickness (mm)" = "MaxIncising",
+                         "Trailing Thickness (mm)" = "MaxTrailing"), 
+              selected = "FlareAngle")
+
+#Select variable for x-axis
+  selectInput("px", 
+             label = "Plate attribute on X-axis:", 
+             choices = c("Plate Diameter (cm)" = "MaxDiameter",
+                         "Flare Length (mm)" = "FlareLength",
+                         "Thickness of Rim (mm)" = "RimThick",
+                         "Thickness Below Flare (mm)" = "ThickBelowFlare",
+                         "Flare Angle (90 degrees = vertical)" = "FlareAngle",
+                         "Incising Thickness (mm)" = "MaxIncising",
+                         "Trailing Thickness (mm)" = "MaxTrailing"), 
+              selected = "MaxDiameter")
+  
+#Slider for plot height
+  sliderInput('pplotHeight', 'Height of plot (in pixels)', 
+                    min = 100, max = 2000, value = 500)
+```
+
+### Exploring Plate Attribute Associations {data-commentary-width=200}
+  
+```{r}
+renderPlotly({
+  
+  #Build plot with ggplot syntax 
+  pp <- ggplot(data = plates, aes_string(x = input$px, y = input$py, color = "Site")) + 
+          geom_point() + 
+          theme(legend.title = element_blank()) + 
+          scale_color_igv()
+
+  ggplotly(pp) %>%
+      layout(height = input$pplotHeight, autosize = TRUE, legend = list(font = list(size = 12))) 
+})
+```
+
+*** 
+Interact by selecting an attribute for each axis. You can change the plot height if it doesn't fit in your window. Then hover over the plot for more options. 
+
+Double-click on an archaeological site in the legend to isolate that site's entries. Once isolated, you can click on other sites in the legend to add them one at a time. Double-click on the isolated site again or select different attributes to view all site's entries again. 
+
+You can also zoom in or out, compare data on hover, select certain entries, or take a picture if you like. If you get lost, select the autoscale or reset axes options. 
+
+There's a lot of missing data in the dataset since these are archaeological artifacts.
+

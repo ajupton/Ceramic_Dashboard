@@ -1,0 +1,507 @@
+Unique,Site,MaxDiameter,FlareLength,RimThick,ThickBelowFlare,FlareAngle,MaxIncising,MaxTrailing
+48,Orendorf C,32,44.1,6.4,5,135,NA,4.3
+49,Orendorf C,25,44.6,5.9,7.7,153,1,NA
+50,Orendorf C,33,37.6,7.4,4.3,156,NA,3.6
+51,Orendorf C,32,30,6.6,5.6,155,NA,NA
+52,Orendorf C,45,29.4,10.2,8.2,164,NA,NA
+53,Orendorf C,32,19.1,5,4.7,152,NA,NA
+54,Orendorf C,NA,20.7,5.5,5.2,165,NA,NA
+55,Orendorf C,30,34.5,5.5,6.1,158,NA,4.9
+56,Orendorf C,32,51,6.2,5,144,NA,NA
+57,Orendorf C,NA,31.5,5.5,5.6,NA,NA,NA
+58,Orendorf C,NA,31.9,5.4,7.1,NA,NA,2.7
+59,Orendorf C,NA,42.8,5.5,6.7,NA,NA,NA
+60,Orendorf C,37,60.3,5.7,NA,143,1.6,NA
+61,Orendorf C,NA,42.9,6,5,147,NA,2.6
+62,Orendorf C,36,31,4,5.2,156,NA,3.7
+63,Orendorf C,26,22.5,6.5,6,163,NA,NA
+64,Orendorf C,33,25.2,5.9,7.4,146,NA,NA
+65,Orendorf C,NA,14.8,4.8,6.2,NA,1.3,NA
+66,Orendorf C,32,45.2,5,4.9,162,NA,NA
+67,Orendorf C,37,30.5,10.2,6.4,155,NA,NA
+68,Orendorf C,NA,NA,NA,5.7,NA,1.4,NA
+69,Orendorf C,NA,19.6,3.8,3.9,152,NA,NA
+70,Orendorf C,29,40.2,4.7,4.8,148,NA,3.8
+71,Orendorf C,NA,NA,3.6,NA,NA,NA,1.7
+72,Orendorf C,32,29,7.2,7.4,158,NA,NA
+73,Orendorf C,NA,NA,5.7,NA,NA,0.8,NA
+74,Orendorf C,NA,NA,4.4,NA,NA,1.2,NA
+75,Orendorf C,NA,NA,5.7,NA,NA,NA,2.5
+76,Orendorf C,NA,NA,6,NA,NA,1.6,NA
+77,Orendorf C,NA,NA,6.2,NA,NA,NA,2.2
+78,Orendorf C,34,29.7,6.2,4.7,161,NA,NA
+79,Orendorf C,33,45.5,7.3,NA,NA,1.5,NA
+122,Crable,32,39.5,8,9.9,148,NA,5.4
+123,Crable,NA,92,5.4,NA,NA,1,NA
+124,Crable,NA,NA,6.5,NA,NA,0.8,NA
+125,Crable,29,40,6.2,NA,NA,0.6,NA
+126,Crable,34,NA,6.8,NA,NA,1,NA
+127,Crable,NA,NA,8.4,NA,NA,1.6,NA
+128,Crable,24,78.4,6.6,6.3,130,0.8,NA
+129,Crable,NA,62.1,6.6,NA,NA,1.3,NA
+130,Crable,NA,NA,5.5,NA,NA,1.2,NA
+131,Crable,NA,73.2,7.2,NA,149,1.3,NA
+132,Crable,31,NA,5.9,NA,NA,1.3,NA
+133,Crable,NA,55.8,5.3,6.3,140,1,NA
+134,Crable,NA,63.8,5.6,NA,138,0.8,NA
+135,Crable,25,63.5,6,7.5,148,1.3,NA
+136,Crable,29,81,6.2,NA,136,1.1,NA
+137,Crable,NA,NA,5.1,NA,NA,NA,2.1
+138,Crable,29,75.6,7.3,NA,138,0.7,NA
+139,Crable,28,35.9,6.1,7.2,148,1.7,NA
+140,Crable,NA,42,6,3.8,NA,0.7,NA
+141,Crable,NA,78.6,6.1,NA,140,1.6,NA
+142,Crable,20,50.8,6.3,6.1,143,1,NA
+143,Crable,27,75.8,6.2,NA,NA,0.6,NA
+144,Crable,NA,NA,6.6,NA,NA,1.3,NA
+145,Crable,22,51.4,6.1,NA,NA,0.9,NA
+146,Crable,NA,80.5,5.9,7.9,NA,2.7,NA
+147,Crable,24,43.5,6.5,7.2,NA,NA,2.6
+148,Crable,34,NA,6.3,NA,NA,1.2,NA
+149,Crable,NA,51.4,7.1,5.4,NA,1.2,NA
+150,Crable,NA,98.3,7,NA,NA,1.5,NA
+151,Crable,NA,NA,6.8,NA,NA,1.3,NA
+152,Crable,NA,102.8,6.5,5.5,NA,1.6,NA
+153,Crable,NA,71.2,7,NA,NA,1.1,NA
+154,Crable,NA,61.3,4.7,7.7,134,0.8,NA
+155,Crable,29,91.3,9.8,7.4,NA,1,NA
+156,Crable,NA,50.1,7.4,6.2,135,NA,1.6
+157,Crable,21,65.3,6,NA,NA,1,NA
+158,Crable,23,41.8,5.6,5.4,NA,0.9,NA
+159,Crable,NA,57,6.4,7.6,NA,1.2,NA
+160,Crable,24,66.8,6,5.9,NA,0.9,NA
+161,Crable,NA,68.4,6.9,NA,NA,0.9,NA
+162,Crable,31,NA,9.5,NA,NA,1.3,NA
+163,Crable,28,73.5,5.8,7.3,NA,1.2,NA
+164,Crable,28,NA,6.8,NA,NA,0.7,NA
+165,Crable,33,NA,8.2,NA,NA,NA,1.5
+166,Crable,NA,NA,8,NA,NA,1,NA
+167,Crable,30,80.2,6.5,4.8,NA,1.3,NA
+168,Crable,26,41.6,7,8.2,NA,2.1,NA
+169,Crable,36,99.3,7.5,7.7,150,1,NA
+170,Crable,NA,98,7,7,NA,1.8,NA
+171,Crable,29,67.3,6.4,NA,NA,1.9,NA
+172,Crable,17,64.5,5.8,NA,129,1,NA
+173,Crable,31,NA,9.6,NA,NA,1.2,NA
+174,Crable,36,110.7,8.4,NA,NA,1.4,NA
+175,Crable,31,99.7,6,7.4,144,NA,1.4
+176,Crable,NA,NA,8,NA,NA,0.9,0
+177,Crable,27,79.4,7.7,NA,132,0.9,NA
+178,Crable,23,72.3,5.4,NA,136,1,NA
+179,Crable,28,66.2,6.8,NA,140,1.2,NA
+180,Crable,24,60.6,6.1,NA,142,0.8,NA
+181,Crable,22,72,7.3,NA,130,NA,NA
+200,Walsh,32,54.4,6,NA,NA,1.3,NA
+201,Walsh,NA,NA,7,NA,NA,1,NA
+202,Walsh,NA,NA,7.1,NA,NA,1,NA
+203,Walsh,26,47.3,8.2,NA,NA,0.9,NA
+205,Walsh,31,63,7.2,NA,NA,NA,NA
+206,Walsh,NA,NA,6,NA,NA,1.2,NA
+207,Walsh,NA,28.7,5.1,NA,NA,NA,NA
+208,Walsh,NA,NA,6.4,NA,NA,NA,NA
+209,Walsh,NA,NA,8.1,NA,NA,1.4,NA
+210,Walsh,NA,NA,7.8,NA,NA,1.1,NA
+211,Walsh,29,NA,9,NA,NA,1.4,NA
+212,Walsh,NA,NA,5.1,NA,NA,1,NA
+213,Walsh,34,NA,6.8,NA,NA,1.2,NA
+214,Walsh,NA,67.7,8.3,NA,NA,1.8,NA
+215,Walsh,NA,NA,6.3,NA,NA,0.8,NA
+216,Walsh,NA,54.8,7.8,NA,NA,NA,NA
+217,Walsh,NA,NA,6.2,NA,NA,1.4,NA
+218,Walsh,28,NA,6.6,NA,NA,1.3,NA
+219,Walsh,NA,32.2,5,NA,NA,1,NA
+220,Walsh,NA,NA,6.1,NA,NA,1.5,NA
+241,Lawrenz Gun Club,31,NA,5.9,NA,NA,1.3,NA
+275,Emmons,33,39.3,8.2,6.7,153,NA,NA
+276,Emmons,27,33,6.8,7.8,NA,NA,NA
+277,Emmons,NA,32.6,7.1,5.1,NA,3,NA
+278,Emmons,38,62.9,7.3,5.9,157,1.7,NA
+279,Emmons,NA,54.4,7.1,7.5,NA,1.4,NA
+280,Emmons,28,40.2,7,7,144,NA,NA
+281,Emmons,NA,NA,8.5,NA,NA,1,NA
+282,Emmons,24,19.5,5,5.6,NA,NA,NA
+283,Emmons,NA,NA,7.3,NA,NA,0.8,NA
+284,Emmons,NA,NA,NA,5.6,NA,1.3,NA
+285,Emmons,32,58.2,7.9,4.2,146,1.4,NA
+286,Emmons,NA,NA,6,NA,NA,1,NA
+287,Emmons,26,38.1,5.8,7.1,159,NA,NA
+288,Emmons,31,29.4,5.1,5,NA,NA,NA
+289,Emmons,32,NA,5.8,NA,NA,1.3,NA
+290,Emmons,NA,25.7,5.9,8.6,NA,NA,NA
+291,Emmons,NA,32.1,6,8.5,NA,1.2,NA
+292,Emmons,NA,NA,NA,NA,NA,1.9,NA
+293,Emmons,NA,33.8,6,5.4,NA,NA,NA
+294,Emmons,NA,NA,NA,6.5,NA,1.4,NA
+298,Baehr South,NA,NA,7.3,NA,NA,1.7,NA
+299,Baehr South,28,NA,6.9,NA,NA,1.3,NA
+300,Baehr South,NA,NA,11,NA,NA,1.2,NA
+301,Baehr South,29,NA,6.9,NA,NA,0.7,NA
+302,Baehr South,NA,NA,7.5,NA,NA,1,NA
+303,Baehr South,26,NA,5,NA,NA,0.6,NA
+304,Baehr South,27,NA,7.1,NA,NA,0.8,NA
+305,Baehr South,19,NA,6.4,NA,NA,1.3,NA
+306,Baehr South,29,NA,7,NA,NA,1.1,NA
+310,Baehr South,32,NA,6.7,NA,NA,1.4,NA
+311,Baehr South,19,NA,5.3,NA,NA,1.3,NA
+331,Myer-Dickson,32,60,6.5,4.6,NA,1,NA
+332,Myer-Dickson,34,63.7,6.8,4,NA,0.5,NA
+333,Myer-Dickson,NA,NA,NA,8.3,NA,NA,NA
+334,Myer-Dickson,NA,NA,NA,6.25,NA,0.7,NA
+335,Myer-Dickson,28,67,8,7.5,NA,1.1,NA
+336,Myer-Dickson,27,62.7,6.4,3.5,NA,0.9,NA
+337,Myer-Dickson,39,75.2,7.7,4.5,NA,NA,NA
+338,Myer-Dickson,NA,NA,5.9,NA,NA,NA,NA
+339,Myer-Dickson,NA,44.8,7.8,8.2,NA,1.1,NA
+340,Myer-Dickson,NA,NA,6,NA,NA,1,NA
+341,Myer-Dickson,27,50.9,8.1,5.2,NA,1.2,NA
+342,Myer-Dickson,32,NA,7.5,6.4,NA,1,NA
+343,Myer-Dickson,NA,NA,NA,5.3,NA,1.6,NA
+344,Myer-Dickson,28,NA,7.9,NA,NA,0.7,NA
+345,Myer-Dickson,33,70.8,7.5,NA,NA,0.8,NA
+346,Myer-Dickson,NA,42.3,8.5,7.5,NA,NA,NA
+371,Crable,32,111.4,7.4,5.8,154,0.9,NA
+412,Star Bridge,NA,NA,NA,5.8,NA,0.8,NA
+413,Star Bridge,22,57.7,7,5.3,150,0.8,NA
+414,Star Bridge,29,64.6,7,5.2,155,1.4,NA
+415,Star Bridge,27,79.4,7.3,7.2,NA,1,NA
+416,Star Bridge,26,NA,5.4,NA,NA,0.09,NA
+417,Star Bridge,NA,NA,NA,8.6,NA,1.4,NA
+418,Star Bridge,NA,NA,NA,8.5,NA,1.2,NA
+419,Star Bridge,26,NA,7.6,NA,NA,0.7,NA
+420,Star Bridge,24,70,4.6,7,150,0.5,NA
+421,Star Bridge,25,NA,6.5,NA,NA,1,NA
+422,Star Bridge,29,NA,7.5,NA,NA,1.2,NA
+423,Star Bridge,26,59,6.2,6.9,147,1,NA
+424,Star Bridge,28,74.5,7.1,8.4,146,0.7,NA
+425,Star Bridge,30,80,5.8,7.5,137,0.9,NA
+426,Star Bridge,NA,52.2,6.5,5.8,NA,1,NA
+427,Star Bridge,23,56.3,6.5,8.4,150,0.8,NA
+428,Star Bridge,19,47.4,8.1,6.8,150,NA,NA
+429,Star Bridge,NA,56.2,8.3,NA,NA,0.9,NA
+430,Star Bridge,24,NA,9.4,NA,NA,0.7,NA
+431,Star Bridge,25,NA,7.1,NA,NA,0.7,NA
+432,Star Bridge,NA,NA,6.8,NA,NA,1.1,NA
+433,Star Bridge,26,NA,7.5,NA,NA,1,NA
+434,Star Bridge,NA,NA,9.4,NA,NA,0.9,NA
+435,Star Bridge,NA,NA,NA,7.6,NA,0.8,NA
+436,Star Bridge,NA,NA,7.8,NA,NA,0.9,NA
+437,Star Bridge,24,NA,7.2,NA,NA,1,NA
+438,Star Bridge,NA,NA,NA,9.5,NA,0.9,NA
+439,Star Bridge,NA,NA,6.7,NA,NA,1.7,NA
+440,Star Bridge,27,NA,6.9,NA,NA,1.3,NA
+441,Star Bridge,23,NA,7.9,NA,NA,1,NA
+442,Star Bridge,NA,NA,9,NA,NA,0.8,NA
+443,Star Bridge,20,NA,5,NA,NA,0.8,NA
+444,Star Bridge,NA,NA,6,NA,NA,0.9,NA
+445,Star Bridge,NA,40.1,5.6,NA,NA,2,NA
+446,Star Bridge,NA,41.2,5.9,NA,NA,1.1,NA
+447,Star Bridge,NA,71.3,7.6,NA,NA,1.2,NA
+448,Star Bridge,24,NA,4.8,NA,NA,1.2,NA
+449,Star Bridge,NA,80.5,5.8,NA,NA,NA,NA
+450,Star Bridge,NA,NA,9.3,NA,NA,1,NA
+451,Star Bridge,20,NA,5.1,NA,NA,1,NA
+452,Star Bridge,NA,38.2,6.3,3.8,NA,1.2,NA
+453,Star Bridge,18,42.9,5,4.7,151,0.7,NA
+454,Star Bridge,27,NA,9.2,NA,NA,1.5,NA
+455,Star Bridge,NA,NA,8.3,NA,NA,1.6,NA
+456,Star Bridge,NA,NA,9.2,NA,NA,1,NA
+457,Star Bridge,24,62.1,5.6,7.6,NA,1.6,NA
+458,Star Bridge,NA,52.8,5.3,5.9,NA,1,NA
+459,Star Bridge,27,NA,8.8,NA,NA,1.3,NA
+460,Star Bridge,NA,70.6,5.2,6.3,NA,0.6,NA
+461,Star Bridge,23,54.7,6.2,8.1,149,0.8,NA
+462,Star Bridge,25,72.8,9.1,8.5,155,0.5,NA
+463,Star Bridge,20,60.5,6.8,7.5,NA,0.7,NA
+464,Star Bridge,28,NA,6.1,NA,NA,1.3,NA
+465,Star Bridge,29,80.8,5.6,6.4,147,1.1,NA
+466,Star Bridge,NA,84.3,5.9,7.2,141,0.9,NA
+467,Star Bridge,25,NA,6.9,NA,NA,0.8,NA
+468,Star Bridge,29,60.7,7,NA,149,0.9,NA
+469,Star Bridge,NA,63.9,6,7.7,NA,0.8,NA
+470,Star Bridge,23,59.6,7.1,4.4,152,0.8,NA
+471,Star Bridge,24,NA,5.8,NA,NA,1.2,NA
+472,Star Bridge,17,45.6,5,NA,143,0.6,NA
+473,Star Bridge,NA,NA,NA,10.8,NA,0.4,NA
+474,Star Bridge,16,32.8,6.1,4.2,140,1,NA
+475,Star Bridge,31,65.2,6.5,6.1,143,1.2,NA
+476,Star Bridge,NA,NA,8.4,NA,NA,1.2,NA
+477,Star Bridge,28,67.9,6.1,5.4,144,1,NA
+478,Star Bridge,25,58.9,6.9,6.4,142,0.8,NA
+479,Star Bridge,28,69.2,8,6.9,139,1,NA
+480,Star Bridge,21,48.2,4.9,NA,NA,1.1,NA
+481,Star Bridge,NA,NA,NA,6.3,NA,1.1,NA
+482,Star Bridge,NA,92.3,6.3,5.5,NA,1,NA
+483,Star Bridge,NA,NA,5.4,7.2,NA,0.7,NA
+484,Star Bridge,31,NA,7.7,NA,NA,NA,NA
+485,Star Bridge,NA,NA,NA,10.1,NA,1.6,NA
+486,Star Bridge,17,48.2,4.4,4.8,146,1,NA
+529,Ten Mile Creek,18,41.4,6.5,7.3,NA,NA,NA
+530,Ten Mile Creek,NA,95.6,8.7,NA,NA,NA,NA
+531,Ten Mile Creek,NA,53.6,7.2,6.5,NA,1.4,NA
+532,Ten Mile Creek,NA,NA,NA,8.5,NA,0.7,NA
+615,Kingston Lake,22,64.8,6.8,NA,148,NA,2.8
+616,Kingston Lake,27,58.1,5,5.1,142,1.1,NA
+617,Kingston Lake,25,43.5,8,6.3,152,NA,1.6
+618,Kingston Lake,21,30.8,7.4,8.3,NA,NA,NA
+619,Kingston Lake,24,39.8,7,7.6,159,NA,NA
+620,Kingston Lake,NA,48.6,7.5,10,NA,0.7,NA
+621,Kingston Lake,22,31.3,5,6.1,153,1,NA
+622,Kingston Lake,NA,51,7.4,6.4,NA,NA,1.4
+623,Kingston Lake,39,49.4,7.2,7.1,167,NA,3.9
+624,Kingston Lake,26,42,5.7,9.1,163,1.3,NA
+625,Kingston Lake,35,43.7,7.7,7.3,154,1.5,NA
+626,Kingston Lake,25,46.4,6.3,5.4,147,2.6,NA
+627,Kingston Lake,27,61.5,7.6,7.5,147,1.2,NA
+628,Kingston Lake,26,49.2,8.2,7.4,159,1.7,NA
+629,Kingston Lake,31,76.8,6.6,6.1,150,0.9,NA
+630,Kingston Lake,28,44.3,6.8,7.8,NA,4.1,NA
+631,Kingston Lake,28,33.6,5.4,5.9,147,2.3,NA
+632,Kingston Lake,15,15.4,5.8,5.1,141,NA,NA
+633,Kingston Lake,26,53,5.9,NA,NA,1.8,NA
+634,Kingston Lake,28,32,7.8,7.2,149,NA,NA
+635,Kingston Lake,29,56.7,7.8,7.5,NA,1.5,NA
+636,Kingston Lake,25,52.2,9.4,11.3,155,NA,4.1
+637,Kingston Lake,NA,33.1,7.5,6.6,NA,NA,NA
+638,Kingston Lake,NA,37.5,6,6.2,NA,NA,2
+639,Kingston Lake,NA,35.3,9.1,8.3,NA,NA,NA
+640,Kingston Lake,NA,NA,8.1,NA,NA,NA,3.3
+641,Kingston Lake,NA,34.2,6.9,6.9,NA,NA,NA
+642,Kingston Lake,25,66.6,6.4,NA,NA,2.5,NA
+643,Kingston Lake,26,45,6.3,7.1,150,0.8,NA
+644,Kingston Lake,27,48,7.8,9.3,148,1.1,NA
+645,Kingston Lake,NA,64.4,6,7,NA,0.8,NA
+646,Kingston Lake,NA,36.2,7.2,6.1,NA,0.9,NA
+647,Kingston Lake,24,40.4,5.7,7.3,149,1.1,NA
+648,Kingston Lake,20,33.7,7,7.6,141,NA,2.8
+649,Kingston Lake,22,NA,6.3,NA,NA,1.3,NA
+650,Kingston Lake,26,49.5,8.7,9.6,150,2.1,NA
+651,Kingston Lake,NA,NA,7.3,NA,NA,1.7,NA
+652,Kingston Lake,23,37.5,5.6,7.2,144,NA,2.6
+653,Kingston Lake,27,56.8,6.4,6.7,NA,1.1,NA
+654,Kingston Lake,20,NA,7.7,NA,NA,2.4,NA
+655,Kingston Lake,NA,41.2,6,6.9,NA,1.8,NA
+656,Kingston Lake,18,39.2,5,5.1,145,2.2,NA
+657,Kingston Lake,20,51.7,6.9,NA,NA,1.4,NA
+658,Kingston Lake,23,NA,5.3,NA,NA,2.1,NA
+659,Kingston Lake,26,53.2,8.3,NA,NA,1.3,NA
+673,Lawrenz Gun Club,28,65,6.8,6.4,155,1.5,NA
+674,Lawrenz Gun Club,NA,45.4,5,4.2,146,0.9,NA
+675,Lawrenz Gun Club,32,30.7,8.3,6.5,171,NA,NA
+676,Lawrenz Gun Club,21,49.5,5.4,5.9,152,1.7,NA
+677,Lawrenz Gun Club,22,20,4.8,7.8,148,NA,NA
+678,Lawrenz Gun Club,24,35.9,6.6,8.5,144,NA,NA
+679,Lawrenz Gun Club,24,28.3,6.6,7.4,145,4,NA
+680,Lawrenz Gun Club,23,30.4,6.9,6.9,NA,4.2,NA
+681,Lawrenz Gun Club,23,29.9,6.3,4.4,153,2.3,NA
+682,Lawrenz Gun Club,21,37.8,7.7,8.4,NA,0.8,NA
+683,Lawrenz Gun Club,31,36.3,8.7,NA,NA,NA,NA
+684,Lawrenz Gun Club,25,24.4,6.7,7.6,147,1.8,NA
+685,Lawrenz Gun Club,NA,26.9,5.6,6.8,NA,NA,NA
+686,Lawrenz Gun Club,NA,NA,5.1,NA,NA,2.9,NA
+687,Lawrenz Gun Club,29,82.1,7.5,NA,NA,1.3,NA
+688,Lawrenz Gun Club,35,95.2,6.8,NA,165,2.1,NA
+689,Lawrenz Gun Club,33,51.4,8,7.6,150,0.3,NA
+696,Lawrenz Gun Club,26,69.3,5.6,NA,NA,0.8,NA
+697,Lawrenz Gun Club,NA,NA,NA,10.5,NA,0.8,NA
+698,Lawrenz Gun Club,23,42,5.2,6.1,NA,0.8,NA
+699,Lawrenz Gun Club,NA,NA,6.8,NA,NA,1.1,NA
+700,Lawrenz Gun Club,24,54.7,8.3,6.9,NA,1,NA
+701,Lawrenz Gun Club,NA,27.2,6,7.1,NA,4.2,NA
+702,Lawrenz Gun Club,NA,NA,NA,NA,NA,1.2,NA
+703,Lawrenz Gun Club,NA,NA,NA,7,NA,1.4,NA
+704,Lawrenz Gun Club,NA,NA,NA,8.2,NA,1.4,NA
+705,Lawrenz Gun Club,25,39.8,6.5,4.1,161,1.1,NA
+706,Lawrenz Gun Club,NA,NA,7.1,NA,NA,1.1,NA
+707,Lawrenz Gun Club,NA,NA,NA,NA,NA,1.5,NA
+708,Lawrenz Gun Club,NA,NA,NA,NA,NA,1.2,NA
+709,Lawrenz Gun Club,25,NA,6.9,NA,NA,1.4,NA
+710,Lawrenz Gun Club,NA,26.6,5.7,8.2,166,NA,NA
+712,Ten Mile Creek,22,41.3,5.3,5,NA,1.2,NA
+713,Ten Mile Creek,NA,55.3,7.8,NA,NA,1,NA
+714,Ten Mile Creek,NA,NA,NA,5.2,NA,1.7,NA
+715,Ten Mile Creek,NA,NA,9.4,NA,NA,2.2,NA
+716,Ten Mile Creek,NA,38.6,6.7,6.1,NA,1.1,NA
+717,Ten Mile Creek,NA,NA,7.3,NA,NA,0.7,NA
+718,Ten Mile Creek,NA,NA,NA,9.5,NA,0.9,NA
+719,Ten Mile Creek,24,NA,8,NA,NA,1.6,NA
+720,Ten Mile Creek,25,NA,7.9,NA,NA,1,NA
+721,Ten Mile Creek,22,NA,6.9,NA,NA,1.1,NA
+722,Ten Mile Creek,24,NA,5.2,NA,NA,NA,NA
+730,Buckeye Bend,34,73.6,8.1,5.14,NA,0.7,NA
+731,Buckeye Bend,32,23.4,6.2,8.3,NA,1.8,NA
+732,Buckeye Bend,NA,32.1,4.3,5.5,NA,0.9,NA
+733,Buckeye Bend,NA,NA,NA,10.5,NA,1.1,NA
+734,Buckeye Bend,30,62.6,6.2,6.1,NA,1.1,NA
+735,Buckeye Bend,27,NA,6.4,NA,NA,1.5,NA
+736,Buckeye Bend,NA,NA,6.3,NA,NA,1.1,NA
+737,Buckeye Bend,31,NA,6.8,NA,NA,1.3,NA
+738,Buckeye Bend,NA,NA,NA,5,NA,1.2,NA
+739,Buckeye Bend,NA,32.6,3.6,4.3,NA,1.6,NA
+740,Buckeye Bend,NA,NA,5.7,NA,NA,0.8,NA
+741,Buckeye Bend,25,37.6,5.8,6.7,NA,1.1,NA
+748,Fouts Village,NA,NA,6.5,NA,NA,1,NA
+751,Fouts Village,NA,NA,6.3,NA,NA,1.4,NA
+752,Fouts Village,NA,NA,5.5,NA,NA,1.1,NA
+756,Fouts Village,NA,NA,5.6,NA,NA,NA,NA
+757,Fouts Village,NA,NA,6,NA,NA,2,NA
+758,Fouts Village,NA,NA,NA,NA,NA,1.3,NA
+759,Fouts Village,NA,NA,5.5,NA,NA,1.3,NA
+760,Fouts Village,NA,NA,NA,NA,NA,1.1,NA
+761,Fouts Village,NA,NA,7.2,NA,NA,1.5,NA
+762,Fouts Village,NA,NA,5.7,NA,NA,1.3,NA
+763,Fouts Village,NA,NA,5.4,NA,NA,1,NA
+764,Emmons,28,46.6,7.8,7.3,NA,0.8,NA
+765,Emmons,NA,NA,5.9,NA,NA,2.7,NA
+766,Emmons,NA,40.2,6,NA,NA,0.5,NA
+810,Larson,38,55.2,7.2,7.1,145,NA,NA
+811,Larson,24,26.3,7,8.7,155,NA,NA
+812,Larson,27,44,5.4,5.7,146,0.7,NA
+813,Larson,32,71.5,5.5,7.2,156,1.1,NA
+814,Larson,29,61.2,6.3,4.5,151,1,NA
+815,Larson,NA,66.4,6.3,6,NA,0.7,NA
+816,Larson,34,63.2,8.1,9.1,137,2,NA
+817,Larson,37,52.1,7.7,5,143,1.6,NA
+818,Larson,34,51.5,7.8,4.9,130,NA,NA
+819,Larson,33,NA,7.3,NA,NA,1,NA
+820,Larson,31,66.8,5.3,7.3,142,1.6,NA
+821,Larson,NA,45.2,5.1,5.6,NA,NA,NA
+822,Larson,38,55.5,9.8,8.8,155,1,NA
+823,Larson,28,28.5,6.6,7.2,150,1.1,NA
+824,Larson,32,49.2,5.1,6,148,0.8,NA
+825,Larson,26,59.4,8.4,NA,NA,1.1,NA
+826,Larson,33,58.2,8,6.3,NA,0.6,NA
+827,Larson,31,48.2,6.8,7,146,1.6,NA
+828,Larson,27,49.8,7.1,7,140,1.5,NA
+829,Larson,21,27.9,6.6,7.1,NA,1,NA
+830,Larson,29,35.4,5.6,9.3,160,NA,NA
+831,Larson,25,37.1,4.8,6,NA,0.8,NA
+832,Larson,27,65,5.5,8.4,NA,0.7,NA
+833,Larson,20,37.6,4.7,NA,NA,0.7,NA
+834,Larson,NA,32.9,6.5,6.5,NA,NA,NA
+835,Larson,30,41.9,5.4,5.2,139,0.9,NA
+836,Larson,NA,54.3,8.3,7.7,NA,1.1,NA
+837,Larson,33,46.1,6,6.5,158,2.3,NA
+838,Larson,24,54.6,5.7,5.7,137,1.6,NA
+839,Larson,NA,35.2,5.7,5.5,NA,1.5,NA
+840,Larson,19,24.1,5.1,4.7,139,NA,NA
+841,Larson,32,55.2,6.9,7.6,NA,0.9,NA
+842,Larson,27,31.7,8.6,7.3,158,1.2,NA
+843,Larson,34,59.2,6,5.3,146,0.8,NA
+844,Larson,31,60.5,5.5,7.4,145,1.2,NA
+845,Larson,27,36.1,6.4,6.8,145,1.6,NA
+846,Larson,27,47.5,7.1,6.3,NA,1.4,NA
+847,Larson,NA,36.5,6.5,6.8,NA,1.2,NA
+848,Larson,31,35.2,5.5,6.8,152,NA,NA
+849,Larson,32,41.8,7.3,10.6,147,2,NA
+850,Larson,NA,NA,6.9,NA,NA,1,NA
+851,Larson,NA,45,5.5,NA,NA,1,NA
+875,Ten Mile Creek,33,56.9,6.5,6.3,NA,1.2,NA
+876,Morton Village,30,61.1,6.1,8.3,140,1.7,NA
+877,Morton Village,NA,NA,7,NA,NA,1,NA
+878,Morton Village,35,42,6,8.6,155,1.5,NA
+879,Morton Village,NA,NA,NA,7.1,146,0.8,NA
+880,Morton Village,31,51.9,6.5,4.7,149,1,NA
+892,Morton Village,31,95.7,6.6,5.6,130,1.2,NA
+893,Morton Village,26,63.3,6.4,6,134,NA,NA
+894,Myer-Dickson,34,62.8,8.2,5.9,NA,1,NA
+895,Houston-Shryock,29,60.5,7.6,7,NA,1.1,NA
+896,Houston-Shryock,NA,48.1,8.1,5.8,NA,NA,NA
+897,Houston-Shryock,NA,NA,5.7,NA,NA,1.7,NA
+898,Houston-Shryock,25,34,6.2,7.8,NA,1.4,NA
+899,Houston-Shryock,27,38.7,6.9,5.4,151,2.3,NA
+900,Houston-Shryock,NA,NA,6,NA,NA,1.4,NA
+901,Houston-Shryock,NA,NA,8.2,NA,NA,1.8,NA
+902,Houston-Shryock,NA,51.9,NA,7.5,NA,1.9,NA
+903,Houston-Shryock,NA,NA,NA,11.7,NA,NA,NA
+904,Houston-Shryock,33,NA,7.2,NA,NA,1.1,NA
+905,Houston-Shryock,NA,NA,8.5,NA,NA,1.4,NA
+906,Houston-Shryock,NA,72.1,8.1,7,NA,1.2,NA
+907,Houston-Shryock,NA,NA,8.8,NA,NA,1.4,NA
+908,Houston-Shryock,28,32.2,6,6.3,153,1.7,NA
+909,Houston-Shryock,NA,48,6.9,9.1,135,2.1,NA
+910,Houston-Shryock,NA,52.5,6.9,5.9,139,NA,NA
+911,Houston-Shryock,NA,NA,5.8,NA,NA,2.3,NA
+926,Houston-Shryock,NA,NA,6.2,NA,NA,3.3,NA
+927,Houston-Shryock,24,45.5,6,7.1,151,NA,NA
+928,Houston-Shryock,29,NA,6.6,NA,NA,1.7,NA
+929,Houston-Shryock,28,NA,5,NA,NA,3.4,NA
+930,Houston-Shryock,NA,52.1,5.7,6.9,NA,0.7,NA
+931,Houston-Shryock,NA,NA,7.3,NA,NA,1.2,NA
+932,Houston-Shryock,NA,25.7,4,8.7,145,NA,NA
+933,Houston-Shryock,NA,33.4,6,5.3,115,1.4,NA
+934,Houston-Shryock,NA,36.5,6.4,5.4,118,2.1,NA
+935,Houston-Shryock,NA,52.3,6.8,NA,NA,1,NA
+952,Star Bridge,29,64.4,6.8,8,160,NA,NA
+953,Star Bridge,30,22.6,5.4,4.2,163,NA,NA
+954,Star Bridge,NA,47.4,6.7,11.7,NA,0.8,NA
+955,Star Bridge,31,36.9,7.4,6.4,144,NA,NA
+956,Star Bridge,27,49.1,7.2,7.2,149,1.2,NA
+957,Star Bridge,24,32,7,6.8,139,NA,NA
+1022,Kingston Lake,31,34.1,7.3,NA,140,NA,NA
+1023,Kingston Lake,29,31.2,5.2,NA,146,NA,3.9
+1024,Emmons,27,24.8,5.3,NA,135,NA,NA
+1067,Crable,25,60.4,6.5,8.5,131,2.8,NA
+1068,Crable,29,86.6,5.7,7.8,127,0.8,NA
+1069,Crable,36,51.9,8.4,6.7,135,1.1,NA
+1070,Crable,NA,91,6.6,7,NA,0.8,NA
+1071,Crable,27,33.8,7.9,11.5,134,NA,NA
+1072,Crable,29,63.2,7.4,6.4,148,NA,2.7
+1073,Crable,NA,32.5,4.7,8.8,NA,NA,2.3
+1074,Crable,NA,75.8,6.4,4.8,NA,NA,2
+1075,Crable,31,99.4,7.7,3.7,130,0.7,NA
+1076,Crable,34,95.8,7.9,6.7,137,1.9,NA
+1077,Crable,31,86.7,6,NA,134,NA,1.1
+1078,Crable,NA,51.5,6.3,9,135,NA,1.5
+1079,Crable,31,66,6.2,7.4,132,NA,1.7
+1144,Lawrenz Gun Club,NA,NA,7.2,NA,NA,1.7,NA
+1145,Lawrenz Gun Club,NA,58.4,5.6,7.3,NA,2.7,NA
+1146,Lawrenz Gun Club,NA,NA,5.7,NA,NA,1.3,NA
+1147,Lawrenz Gun Club,NA,48.5,7.4,8.3,NA,1.3,NA
+1148,Lawrenz Gun Club,21,21.4,6.2,8.8,141,NA,NA
+1149,Lawrenz Gun Club,NA,NA,6.2,NA,NA,NA,NA
+1150,Lawrenz Gun Club,NA,76.4,6.8,9.9,NA,1.3,NA
+1151,Lawrenz Gun Club,NA,NA,6.9,NA,NA,1.7,NA
+1152,Lawrenz Gun Club,25,39.6,8.3,6.6,149,1,NA
+1167,Morton Village,30,NA,4.21,NA,NA,NA,3.96
+1168,Morton Village,14,46.4,5.14,3.6,110,0.81,NA
+1169,Morton Village,17,NA,6.75,NA,NA,NA,1.91
+1170,Morton Village,18,57.75,4.56,NA,135,0.96,NA
+1171,Morton Village,20,NA,2.92,NA,NA,NA,NA
+1172,Morton Village,20,74.51,5.15,NA,155,0.73,NA
+1173,Morton Village,21,75.45,7.05,NA,120,0.94,NA
+1174,Morton Village,23,62.45,4.04,NA,130,NA,NA
+1175,Morton Village,24,34.83,5.02,4.15,130,NA,2.47
+1176,Morton Village,25,73.41,4.45,3.49,140,1.27,NA
+1177,Morton Village,25,70.83,4.75,NA,135,NA,2.38
+1178,Morton Village,26,41.73,4.22,NA,NA,NA,NA
+1179,Morton Village,26,NA,6.49,NA,NA,0.68,NA
+1180,Morton Village,28,NA,7.23,NA,130,NA,NA
+1181,Morton Village,30,50.88,6.58,NA,165,0.5,NA
+1182,Morton Village,30,86,8.22,3.74,115,0.36,NA
+1183,Morton Village,30,NA,8.02,NA,140,NA,1.69
+1184,Morton Village,30,71.58,4.69,5.47,130,NA,3.55
+1185,Morton Village,31,NA,5.03,5.29,165,NA,3.03
+1187,Morton Village,35,NA,5.65,NA,130,1.15,NA
+1188,Morton Village,36,55,7.45,NA,NA,1.04,NA
+1189,Morton Village,36,70.8,5.47,NA,125,0.77,NA
+1190,Morton Village,36,60,5.66,NA,135,NA,2.51
+1191,Morton Village,37,62.9,6.18,NA,140,NA,1.97
+1192,Morton Village,40,48.53,6.76,4.05,NA,NA,1.79
+1193,Morton Village,44,71.41,6.77,NA,150,1.02,NA
+1194,Morton Village,9,NA,4.22,NA,170,NA,1.19
+1242,Orendorf D,46,48.3,6,NA,143,NA,NA
+1243,Orendorf D,34,36.5,8.3,NA,150,NA,NA
+1244,Orendorf D,30,46,6.2,NA,142,NA,NA
+1245,Orendorf D,34,53.9,4.6,NA,157,NA,NA
+1246,Orendorf D,28,41.5,6.7,NA,136,NA,NA
+1247,Orendorf D,24,42.5,6,NA,134,NA,NA
+1248,Orendorf D,21,NA,7.7,NA,NA,NA,NA
+1249,Orendorf D,28,35.5,5.8,NA,140,NA,NA
+1250,Orendorf D,35,46.8,6.5,NA,NA,NA,NA
+1251,Orendorf D,38,33.6,7.2,NA,147,NA,NA
+1252,Orendorf D,30,39.8,6.1,NA,NA,NA,NA
+1253,Orendorf D,32,26.6,8.1,NA,156,NA,NA
+1254,Orendorf D,32,26.6,6.3,NA,NA,NA,NA
+1255,Orendorf D,35,42.9,6.7,NA,127,NA,NA
+1256,Orendorf D,28,25.6,6.2,NA,146,NA,NA
+1257,Orendorf D,26,22.6,5.4,NA,NA,NA,NA

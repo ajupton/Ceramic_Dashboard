@@ -1,0 +1,12 @@
+name: CeramicDashboard
+title: CeramicDashboard
+username:
+account: andrewupton
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 256506
+bundleId: 1379665
+url: https://aupton.shinyapps.io/CeramicDashboard/
+when: 1526598801.55103
+asMultiple: FALSE
+asStatic: FALSE
