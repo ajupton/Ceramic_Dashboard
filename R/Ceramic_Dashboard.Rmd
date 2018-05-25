@@ -1,14 +1,12 @@
 ---
-title: "Ceramic_Dashboard"
-author: "Andy Upton"
-date: "1/12/2018"
+title: "Ceramic Dashboard"
 output: 
- 
+  
   flexdashboard::flex_dashboard:
     storyboard: true
     social: menu
-    source_code: embed
-    theme: flatly
+    source_code: "https://github.com/ajupton/Ceramic_Dashboard"
+    theme: readable
 runtime: shiny
 ---
 
@@ -23,60 +21,59 @@ library(ggsci)
 library(threejs)
 library(igraph)
 library(colorRamps)
+library(knitr)
+library(cluster)
 ```
  
 ```{r global, include=FALSE}
-#load in the ceramic data in 'global' chunk so it can be shared by all users of the dashboard
+# load in the ceramic data in 'global' chunk so it can be shared by all users of the dashboard
 jars <- read.csv("jars_cont.csv") 
 jnames <- names(jars)
 plates <- read.csv("plates_cont.csv")
 pnames <- names(plates)
-jel <- read_csv("Jar_edgelist_complete_0.5 threshold_Site match deleted_Time 1 and 2 only.csv")
+jel <- read_csv("jelvis.csv")
 jelpre <- read_csv("Jar_edgelist_complete_0.5 threshold__PRE-MIGRATION ONLY.csv")
 jelpost <- read_csv("Jar_edgelist_complete_0.5 threshold__POST-MIGRATION ONLY.csv")
+
+jar_node_table <- read_csv("Jar_node_table.csv")
+plate_node_table <- read_csv("Plate_node_table.csv")
 ```
 
-Introduction {.storyboard}
+Introduction {.storyboard data-navmenu="Introduction"}
 =======================================================================
 
-### Welcome to the Late Prehistoric central Illinois River valley (circa 1200 - 1450 A.D.)
+### Welcome 
 
-```{r}
-#convert to data frame
+```{r graph for intro page}
+# convert to data frame
 jel <- as.data.frame(jel)
-jelpre <- as.data.frame(jelpre)
-jelpost <- as.data.frame(jelpost)
 
-#convert character columns to factor to enable plotting features
-cols <- c(1, 2, 5, 6, 10)
+# convert character columns to factor to enable plotting features
+cols <- c(1, 2)
 jel[cols] <- lapply(jel[cols], factor)
-jelpre[cols] <- lapply(jelpre[cols], factor)
-jelpost[cols] <- lapply(jelpost[cols], factor)
 
-#create igraph object from data frames
+# create igraph object from data frames
 jg <- graph_from_data_frame(jel, directed = TRUE)
-jgpre <- graph_from_data_frame(jelpre, directed = TRUE)
-jgpost <- graph_from_data_frame(jelpost, directed = TRUE)
 
-#create warm color scale function for edges (too many edges for a color palette)
-#yellow is a weaker tie while red is a stronger tie
+# create warm color scale function for edges (too many edges for a simple color palette)
+# yellow is a weaker tie while red is a stronger tie
 colfunc <- colorRampPalette(c("yellow", "orange", "red"))
 
-#create a vector of sizes for the vertices' labels
+# create a vector of sizes for the vertices' labels
 vsizejg <- rep.int(.25, 18)
-vsizepre <- rep.int(.25, 12)
-vsizepost <- rep.int(.25, 7)
 
-#3D graph of jars across time
-graphjs(jg, edge.color = colfunc(112), edge.width = 2.5, vertex.shape = V(jg)$name, vertex.size = vsizejg, edge.alpha = 0.7)
+# 3D graph of jars across time
+graphjs(jg, edge.color = colfunc(121), edge.width = 2.5, 
+                vertex.shape = V(jg)$name, vertex.size = vsizejg, 
+                edge.alpha = 0.7) 
 ```
 
 ***
-Through this interactive online dashboard, you will be able to explore a database of over 1,300 ceramic artifacts from nearly two dozen settlements in what archaeologists refer to as the Late Prehistoric central Illinois River valley or CIRV. This period saw the rise of agricultural chiefdoms in the region beginning in the 11th and 12th centuries A.D. and later an in-migration of a tribal group from the north around A.D. 1300. 
+Welcome to this interactive online dashboard. Here, you can explore social relationships between settlements in the Late Prehistoric central Illinois River valley. This period saw the rise of agricultural chiefdoms in the region beginning in the 11th and 12th centuries A.D. and later an in-migration of a tribal group from the north around A.D. 1300. 
 
-This dashboard will take you step by step to learn how it is that archaeologists can model social relationships between settlements using archaeological data. 
+Models of social relationships, such as the 3D sociogram to the left, are constructed by analyzing cultural transmission in a large database of archaeological ceramic attributes and stylistic designs. 
 
-Click to drag or scroll to zoom in and out of the 3-Dimensional network of Late Prehistoric archaeological settlements to the left. Do any of the names sounds familiar? Many settlements were named after the family that owned the land on which the sites were discovered. 
+Click to drag or scroll to zoom in and out of the 3D network of Late Prehistoric archaeological settlements to the left. Do any of the names sounds familiar? Many settlements were named after the family that owned the land on which the they were discovered. 
 
 When you're ready to move on and learn more, simply press the right arrow on your keyboard or use the mouse to select the different pages or tabs above. 
 
@@ -96,25 +93,22 @@ Depicted here (clockwise from upper left) are an artist's rendering of Orendorf 
 
 Settlements include palisaded towns, often with large platform and burial mounds (such as Star Bridge, Larson, and Orendorf), and smaller villages (such as Buckeye Bend and Morton Village). 
 
-### Plate Designs
-![Images courtesy Dickson Mounds Museum and the Western Illinois Archaeological Research Center; not to scale](Plate_designs.png)
-
 ***
 
-Jar Dataset at a Glance {.storyboard}
+Jar Dataset at a Glance {.storyboard data-navmenu="Introduction"}
 ======================================================================
 
 ### Jar Attributes
 ![Images courtesy Dickson Mounds Museum and the Western Illinois Archaeological Research Center; not to scale](Jar_attributes.png)
 
 ***
-Domestic jars served a very important function - cooking. Soups and stews were very common meals made in these vessels. You can also use them prepare corn via nixtamalization, render fat, gather water, or perhaps store seeds or other goods. 
+Domestic jars served a very important function - cooking. Soups and stews were very common meals made in these vessels. You can also use them prepare corn via nixtamalization, render fat, store water, or perhaps store seeds or other goods. 
 
 The attributes to the left allow archaeologists to study changes in how these vessels were made over time and to uncover differences in how communities of potters made them at different settlements. These changes and differences allow archaeologists to discover how closely related the communities may have been to each other and to model cultural transmission over time and across space.  
 
 ### Number of Jars by Site
 
-```{r, fig.width = 20, fig.height=20}
+```{r num_jars, fig.width = 20, fig.height=20}
 jhist <- jars %>%
           group_by(Site)%>%
             ggplot() + geom_histogram(aes(x = Site, fill = ..count..), stat = "count") + 
@@ -129,31 +123,136 @@ ggplotly(jhist)
 ***
 Archaeologists have recovered many jars from some settlements and few from others. This is both a product of the size and length of occupation of the settlement as well as the intensity of archaeological excavation or looting. 
 
+Variability in the amount of data from each site may affect interpretations. 
+
 ### Jar Density ridgeline plots
 
-```{r, fig.width=15, fig.height=15}
-#Gather Jar dataset
+```{r jar_ridgeline, message=F, warning=F, fig.width=15, fig.height=15}
+# Gather data for faceting. Faceting allows the graph to show each attribute's 
+# distribution across the different sites
 jGathered <- gather(jars, Attribute, Value, Orifice:MaxTrailing)
 
-#Plot jar density ridgeline
-ggplot(jGathered, aes(x = Value, y = Site)) + 
-    geom_density_ridges() + 
-    facet_wrap(~Attribute, scale = "free", ncol = 3) + 
-    theme(axis.text.y = element_text(size=11), strip.text.x = element_text(size=13)) + 
-    xlab("") + ylab("")
+# read in node tables to add column to arrange by time period in ridgeline plots
+jar_node_table <- read_csv("Jar_node_table.csv")
+colnames(jar_node_table) <- c("Site", "Label", "Long", "Lat", "Time")
+
+# join node table to allow for separating out sites by time in plots
+jGathered <- jGathered %>% left_join(jar_node_table[c(1, 5)])
+jGathered$Time1 <- as.factor(jGathered$Time)# Add Time column as factor for discrete color scale
+
+# Create plate ridgeline plot
+jRidge <- jGathered %>% group_by(Site) %>% arrange(Site, Time) %>% 
+            ggplot(aes(x = Value, y = reorder(Site, desc(Time)), fill = Time1)) + 
+            geom_density_ridges() + 
+            facet_wrap(~Attribute, scale = "free") + 
+            theme(axis.text.y = element_text(size=12)) + 
+            xlab("") + 
+            ylab("") + ggtitle("Jar Attributes") +
+            scale_fill_brewer(palette = "Greens") + 
+            theme(legend.position = "none") 
+
+# Show the jar ridgeline plot
+jRidge
 ```
 
 ***
 These density ridgeline plots show how jar attributes are distributed at each settlement Remember, these vessels were all made by hand. Yet, certain attributes are largely consistent across settlements while others tend to vary quite a bit. 
 
-Jar Attribute Explorer {.storyboard}
+Pinch your trackpad if on a mac to zoom and find a better view. 
+
+Plate Dataset at a Glance {.storyboard data-navmenu="Introduction"}
 ======================================================================
+
+### Plate Attributes
+![Images courtesy Dickson Mounds Museum, the Western Illinois Archaeological Research Center, J.O'Gorman and J. Lieto; not to scale](Plate_attributes.png)
+
+***
+Plates are a vessel class largely unique to the Late Prehistoric period. This vessel type is thought to have primarily been used to serve food, especially during important meals such as feasts. Don't these vessels look strikingly similar to the kinds of plates you might have your food served in at a nice restaurant today? Well, if they were cleaned up and made of porcelain that is.
+
+The attributes to the left allow archaeologists to study changes in how these vessels were made over time and to uncover differences in how communities of potters made them at different sites. These changes and differences allow archaeologists to discover how closely related the communities may have been to each other and to model cultural transmission.
+
+### Number of Plates by Site
+
+```{r plate_hist, fig.width = 15, fig.height=15}
+phist <- plates %>%
+          group_by(Site)%>%
+            ggplot() + geom_histogram(aes(x = Site, fill = ..count..), stat = "count") + 
+              theme(axis.text.x = element_text(angle = 20, hjust = 1)) + 
+              ylab("") + 
+              scale_fill_gradient2() + 
+              xlab("")
+
+ggplotly(phist)
+```
+
+***
+Archaeologists have recovered many jars from some settlements and few from others. This is both a product of the size and length of occupation of the settlement as well as the intensity of archaeological excavation or looting.  
+
+Variability in the amount of data from each site may affect interpretations. 
+
+### Plate Density ridgeline plots
+
+```{r plate_ridgeline, message=F, warning=F,fig.width=15, fig.height=15}
+# Gather data for faceting. Faceting allows the graph to show each attribute's 
+# distribution across the different sites
+pGathered <- gather(plates, Attribute, Value, MaxDiameter:MaxTrailing)
+
+# read in node tables to add column to arrange by time period in ridgeline plots
+plate_node_table <- read_csv("Plate_node_table.csv")
+colnames(plate_node_table) <- c("Site", "Label", "Long", "Lat", "Time")
+
+# join node table to allow for separating out sites by time in plots
+pGathered <- pGathered %>% left_join(plate_node_table[c(1, 5)])
+pGathered$Time1 <- as.factor(pGathered$Time) # Add Time column as factor for discrete color scale
+
+# Create plate ridgeline plot
+pRidge <- pGathered %>% group_by(Site) %>% arrange(Time, Site) %>% 
+            ggplot(aes(x = Value, y = reorder(Site, desc(Time)), fill = Time1)) + 
+            geom_density_ridges() + 
+            facet_wrap(~Attribute, scale = "free") + 
+            theme(axis.text.y = element_text(size=12)) + 
+            xlab("") + 
+            ylab("") + ggtitle("Plate Attributes") +
+            scale_fill_brewer(palette = "Greens") + 
+            theme(legend.position = "none")
+
+# Show the plate ridgeline plot
+pRidge
+```
+
+***
+These density ridgeline plots show how plate attributes are distributed at each site. Remember, these vessels were all made by hand. Yet, certain attributes are largely consistent across sites while others tend to vary quite a bit.
+
+Pinch your trackpad if on a mac to zoom and find a better view. 
+
+### Plate Designs
+![Images courtesy Dickson Mounds Museum and the Western Illinois Archaeological Research Center; not to scale](Plate_designs.png)
+
+Jar Attribute Explorer {data-navmenu="Attribute Explorers"}
+======================================================================
+
+### Exploring Jar Attribute Associations {data-commentary-width=200}
+  
+```{r}
+renderPlotly({
+  
+  #Build plot with ggplot syntax 
+  pj <- ggplot(data = jars, aes_string(x = input$jx, y = input$jy, color = "Site")) +
+          geom_point() +       
+          theme(legend.title = element_blank()) + 
+          scale_color_igv()
+
+  ggplotly(pj) %>%
+      layout(height = input$plotHeight, autosize = TRUE, legend = list(font = list(size = 12))) 
+})
+```
+
 
 Inputs {.sidebar} 
 -----------------------------------------------------------------------
 
 ```{r}
-headerPanel("Jar Attribute Explorer")
+headerPanel("Jar Attributes")
 
 #Select variable for y-axis
  selectInput("jy", 
@@ -181,88 +280,40 @@ headerPanel("Jar Attribute Explorer")
   
 #Slider for plot height
   sliderInput('plotHeight', 'Height of plot (in pixels)', 
-                    min = 100, max = 2000, value = 500)
+                    min = 100, max = 2000, value = 550)
 ```
 
-### Exploring Jar Attribute Associations {data-commentary-width=200}
-  
+Interact by selecting an attribute for each axis. You can change the plot height if it doesn't fit in your window. Then hover over the plot for more options. 
+
+Double-click on an archaeological settlement name in the legend to isolate that settlement's entries. Once isolated, you can click on other settlememts in the legend to add them one at a time. Double-click on the isolated again or select different attributes to view all settlement entries again. 
+
+You can also zoom in or out, compare data on hover, select certain entries, or take a picture if you like. If you get lost, select the autoscale or reset axes options. 
+
+Plate Attribute Explorer {data-navmenu="Attribute Explorers"}
+======================================================================
+
+### Exploring Plate Attribute Associations {data-commentary-width=200}
+
 ```{r}
 renderPlotly({
   
   #Build plot with ggplot syntax 
-  pj <- ggplot(data = jars, aes_string(x = input$jx, y = input$jy, color = "Site")) +
-          geom_point() +       
+  pp <- ggplot(data = plates, aes_string(x = input$px, y = input$py, color = "Site")) + 
+          geom_point() + 
           theme(legend.title = element_blank()) + 
           scale_color_igv()
 
-  ggplotly(pj) %>%
-      layout(height = input$plotHeight, autosize = TRUE, legend = list(font = list(size = 12))) 
+  ggplotly(pp) %>%
+      layout(height = input$pplotHeight, autosize = TRUE, 
+             legend = list(font = list(size = 12))) 
 })
 ```
-
-*** 
-Interact by selecting an attribute for each axis. You can change the plot height if it doesn't fit in your window. Then hover over the plot for more options. 
-
-Double-click on an archaeological settkement name in the legend to isolate that settlement's entries. Once isolated, you can click on other settlememts in the legend to add them one at a time. Double-click on the isolated again or select different attributes to view all settlement entries again. 
-
-You can also zoom in or out, compare data on hover, select certain entries, or take a picture if you like. If you get lost, select the autoscale or reset axes options. 
-
-There's a lot of missing data in the dataset since these are archaeological artifacts.
-
-Plate Dataset at a Glance {.storyboard}
-======================================================================
-
-### Plate Attributes
-![Images courtesy Dickson Mounds Museum, the Western Illinois Archaeological Research Center, J.O'Gorman and J. Lieto; not to scale](Plate_attributes.png)
-
-***
-Plates are a vessel class largely unique to the Late Prehistoric period. This vessel type is thought to have primarily been used to serve food, especially during important meals such as feasts. Don't these vessels look strikingly similar to the kinds of plates you might have your food served in at a nice restaurant today?
-
-The attributes to the left allow archaeologists to study changes in how these vessels were made over time and to uncover differences in how communities of potters made them at different sites. These changes and differences allow archaeologists to discover how closely related the communities may have been to each other and to model cultural transmission.
-
-### Number of Plates by Site
-
-```{r, fig.width = 15, fig.height=15}
-phist <- plates %>%
-          group_by(Site)%>%
-            ggplot() + geom_histogram(aes(x = Site, fill = ..count..), stat = "count") + 
-              theme(axis.text.x = element_text(angle = 20, hjust = 1)) + 
-              ylab("") + 
-              scale_fill_gradient2() + 
-              xlab("")
-
-ggplotly(phist)
-```
-
-***
-Archaeologists have recovered many jars from some settlements and few from others. This is both a product of the size and length of occupation of the settlement as well as the intensity of archaeological excavation or looting.  
-
-### Plate Density ridgeline plots
-
-```{r, fig.width=15, fig.height=15}
-#Gather Plate dataset
-pGathered <- gather(plates, Attribute, Value, MaxDiameter:MaxTrailing)
-
-#Plot jar density ridgeline
-    ggplot(pGathered, aes(x = Value, y = Site)) + 
-        geom_density_ridges() + 
-        facet_wrap(~Attribute, scale = "free", ncol = 3) + 
-        theme(axis.text.y = element_text(size=11), strip.text.x = element_text(size=13)) +
-        xlab("") + 
-        ylab("")
-```
-
-***
-These density ridgeline plots show how plate attributes are distributed at each site. Remember, these vessels were all made by hand. Yet, certain attributes are largely consistent across sites while others tend to vary quite a bit.
-
-Plate Attribute Explorer {.storyboard}
-======================================================================
 
 Inputs {.sidebar} 
 -----------------------------------------------------------------------
 
 ```{r}
-headerPanel("Plate Attribute Explorer")
+headerPanel("Plate Attributes")
 
 #Select variable for y-axis
  selectInput("py", 
@@ -290,31 +341,587 @@ headerPanel("Plate Attribute Explorer")
   
 #Slider for plot height
   sliderInput('pplotHeight', 'Height of plot (in pixels)', 
-                    min = 100, max = 2000, value = 500)
+                    min = 100, max = 2000, value = 550)
 ```
 
-### Exploring Plate Attribute Associations {data-commentary-width=200}
-  
-```{r}
-renderPlotly({
-  
-  #Build plot with ggplot syntax 
-  pp <- ggplot(data = plates, aes_string(x = input$px, y = input$py, color = "Site")) + 
-          geom_point() + 
-          theme(legend.title = element_blank()) + 
-          scale_color_igv()
-
-  ggplotly(pp) %>%
-      layout(height = input$pplotHeight, autosize = TRUE, legend = list(font = list(size = 12))) 
-})
-```
-
-*** 
 Interact by selecting an attribute for each axis. You can change the plot height if it doesn't fit in your window. Then hover over the plot for more options. 
 
 Double-click on an archaeological site in the legend to isolate that site's entries. Once isolated, you can click on other sites in the legend to add them one at a time. Double-click on the isolated site again or select different attributes to view all site's entries again. 
 
 You can also zoom in or out, compare data on hover, select certain entries, or take a picture if you like. If you get lost, select the autoscale or reset axes options. 
+ 
+Cultural Transmission {.storyboard data-navmenu="Cultural Transmission"}
+======================================================================
 
-There's a lot of missing data in the dataset since these are archaeological artifacts.
+###Cultural Transmission and the Archaeological Record
+
+```{r cult_trans_intro_text}
+
+h2("Cultural Transmission and Relational Interaction")
+
+HTML("<p>By now, you've had a chance to explore and get to know the jar and plate technological characterization data, but you might be wondering how that information can be used to infer social interrelationships between archaeological settlements. The following frames explain how interaction networks are revealed through the application of a model of cultural transmission. 
+<br>
+<br>
+A model drawn from cultural transmission theory enables the differentiation between vessel attributes that are more likely to have been affected by social constraints (used in 'signalling' or social information bearing) from atrributes more likely to have been affected by engineering constraints (Eerkens and Bettinger 2008). This important distinction ensures that relational social ties between sites based on proportions of similarities in technological attributes suggestive of historical relations of descent or shared learning mechanisms between sites are not confused with similarities caused by engineering constraints in the execution of a given artifact attribute. Strong similarities between type-attributes indicated by the model as suggesting a social information bearing component are argued here to reflect a high degree of relational interaction through cultural transmission processes. That is, as similarity between socially mediated artifact type-attributes increases, so does the likelihood that relational social interaction contributed to that similarity.
+<br>
+<br>
+The model used here is adapted from the work of Eerkens and Bettinger (2008). The basic premise underlying the Eerkens and Bettinger model is the supposition that different processes guiding the transmission of cultural traits will result in distinct patterns in measures of artifact variation. That is, artifacts or attributes should pattern differently if they were used to mark group identity (also referred to as “emblemic markers”), individual identity (also referred to as “assertive markers”), or were constrained by engineering principles depending on whether they are context dependent. This model is designed to allow for the quantitative testing of otherwise qualitative assumptions about the nature of attribute variation. 
+<br>
+<br>
+Translating the 'academese' above into plain English: we are looking for vessel attributes that have a lot of variation from site to site. If the entire vessel assemblages from two sites are similar when considering those attributes, it means there's a good chance the people from those two sites interacted frequently or came from the same families. Let's break this down step by step. </p>")
+
+```
+
+***
+Reference Cited:
+  Eerkens, J.W., Bettinger, R.L., 2008. Cultural Transmission and the Analysis of Stylistic and
+  Functional Variation, in: O’Brien, M.J. (Ed.), Cultural Transmission and Archaeology: Issues 
+  and Case Studies. The Society for American Archaeology, Washington D.C., pp. 21–38.
+  
+###Searching for Variation
+
+```{r variation_intro}
+h2("Teasing Out Variation")
+```
+
+The [Eerkens and Bettinger (2008)](http://eerkens.ucdavis.edu/uploads/7/9/3/8/79382344/ct2008.pdf) model relies on three assemblage based measures to tease out different kinds of variation in artifact type-attributes. These measures are based on assemblage summary statistics including the mean, standard deviation, and coefficient of variation from each type-attribute. Much of the focus of the Eerkens and Bettinger model is to differentiate between type-attributes used to make individual or groups scale identification, which has been referred to elsewhere as emblemic or assertive markers (Wiessner 1984). For the purposes of this analysis, one of these measures in particular is relevant - the Variation of Variation (VOV), or coefficient of variation of assemblage specific type-attribute coefficients of variation. Essentially, a high VOV score shows significant variation in an attribute between and within assemblages, and therefore suggests that engineering factors likely did not constrain the execution of those high VOV type-attributes during pottery vessel manufacture. It is therefore much more likely that the variation between assemblages in these attributes in particular would reflect the cultural transmission of information related to pottery production or group signaling behavior. 
+
+```{r EB_functions, warning=FALSE, message=FALSE}
+# Unbiased estimator of coefficient of variation
+my_cv <- function(x){
+          (sd(x, na.rm = TRUE)/mean(x, na.rm = TRUE)) * (1 + (1/(4*length(x[!is.na(x)]))))
+  }
+
+# Standard Deviation, removing missing values by default
+my_sd <- function(x){
+          sd(x, na.rm = TRUE)
+  }
+
+# Mean function, removing missing values by default
+my_mean <- function(x){
+          mean(x, na.rm = TRUE)
+  }
+
+# Variation of Variation (VOV) 
+# Unbiased CV of assemblage CVs
+VOV <- function(x){x %>%
+    group_by(Site) %>%
+      summarise_all(my_cv) %>%
+      summarise_all(my_cv)
+  }
+
+# Variation of the mean (VOM)
+# Unbiased CV of assemblage means
+VOM <- function(x){x %>%
+    group_by(Site) %>%
+      summarise_all(my_mean) %>%
+      summarise_all(my_cv)
+  }
+
+# Average variation (AV)
+# Mean of assemblage CVs
+AV <- function(x){x %>% 
+    group_by(Site) %>%
+      summarise_all(my_cv) %>%
+      summarise_all(my_mean)
+  }
+```
+
+```{r EB_routines, warning=F}
+# Calculate VOV for jars and plates, add vessel class to attribute name
+jarsVOV <- VOV(jars)
+colnames(jarsVOV) <- paste("Jar", colnames(jarsVOV), sep = "_")
+platesVOV <- VOV(plates)
+colnames(platesVOV) <- paste("Plate", colnames(platesVOV), sep = "_")
+
+# Calculate AV for jars and plates, add vessel class to attribute name
+jarsAV <- AV(jars)
+colnames(jarsAV) <- paste("Jar", colnames(jarsAV), sep = "_")
+platesAV <- AV(plates)
+colnames(platesAV) <- paste("Plate", colnames(platesAV), sep = "_")
+
+# Calculate VOM for jars and plates, add vessel class to attribute name
+jarsVOM <- VOM(jars)
+colnames(jarsVOM) <- paste("Jar", colnames(jarsVOM), sep = "_")
+platesVOM <- VOM(plates)
+colnames(platesVOM) <- paste("Plate", colnames(platesVOM), sep = "_")
+
+# Transpose scores to prepare for concatenating into a table
+VOV_scores <- t(tbl_df(c(jarsVOV[-1], platesVOV[-1])))
+VOM_scores <- t(tbl_df(c(jarsVOM[-1], platesVOM[-1])))
+AV_scores <- t(tbl_df(c(jarsAV[-1], platesAV[-1])))
+
+# Bind together different score metrics and provide column names
+EB_scores <- as.data.frame(cbind(scale(VOV_scores), scale(VOM_scores), scale(AV_scores)))
+colnames(EB_scores) <- c("VOV", "VOM", "AV")
+
+# Add a column of the rownames and order the table by VOV
+EB_scores <- EB_scores %>%
+              rownames_to_column(var = "Metric") %>%
+              arrange(desc(VOV))
+
+# Plot VOV 
+pVOV <- EB_scores %>%
+          gather(key = EB_Metric, value = Score, VOV:AV) %>%
+          filter(EB_Metric == "VOV") %>%  
+          ggplot() + geom_point(aes(x = reorder(Metric, Score), y = Score), 
+                                shape = 18, size = 4) + 
+          ylab("VOV") + xlab("") + 
+          theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), 
+                axis.text.y = element_text(family = "Times", color = "gray5"), 
+                axis.title.y = element_text(family = "Times", color = "gray5"), 
+                legend.position = "none") + coord_cartesian(ylim = c(-2, 2)) +
+          scale_y_continuous(breaks = c(-2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2))
+
+# Plot AV
+pAV <- EB_scores %>%
+          gather(key = EB_Metric, value = Score, VOV:AV) %>%
+          filter(EB_Metric == "AV") %>%  
+          ggplot() + geom_point(aes(x = reorder(Metric, Score), y = Score), 
+                                shape = 18, size = 4) + 
+          ylab("AV") + xlab("") + 
+          theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), 
+                axis.text.y = element_text(family = "Times", color = "gray5"), 
+                axis.title.y = element_text(family = "Times", color = "gray5"), 
+                legend.position = "none") + coord_cartesian(ylim = c(-2, 2.2)) +
+          scale_y_continuous(breaks = c(-2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2)) 
+
+# Plot VOM
+pVOM <- EB_scores %>%
+          gather(key = EB_Metric, value = Score, VOV:AV) %>%
+          filter(EB_Metric == "VOM") %>%  
+          ggplot() + geom_point(aes(x = reorder(Metric, Score), y = Score), 
+                                shape = 18, size = 4) + 
+          ylab("VOM") + xlab("") + 
+          theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), 
+                axis.text.y = element_text(family = "Times", color = "gray5"), 
+                axis.title.y = element_text(family = "Times", color = "gray5"), 
+                legend.position = "none") + coord_cartesian(ylim = c(-2, 2)) +
+          scale_y_continuous(breaks = c(-2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2))
+
+pVOV
+pVOM
+pAV
+```
+
+
+There are two clear breaks present in the VOV distribution - one for the highest two scores and then another in the middle of the VOV score distribution. We'll use the middle cutoff and select the eight type-attributes with a higher VOV score to construct our attribute networks for the Late Prehistoric CIRV. Those attributes include: 
+
+```{r}
+h2("Plate: ")
+
+h4('flare angle, trailing thickness, incising thickness, and diameter')
+
+h2("Jar: ")
+
+h4('rim angle, trailing thickness, rim height, and wall thickness')
+
+HTML("<br>")
+```
+
+
+Head on over to the next page "Networks of Interaction" to see the 3D network visualizations created using proportional similarity between sites calculated with these socially mediated artifact attributes. 
+
+Networks of Interaction {data-navmenu="Networks of Interaction"}
+======================================================================
+
+```{r int_nets_intro}
+h2("Networks of Interaction")
+```
+
+Without getting too technical, the methodology to transform socially mediated artifact attribute measurements into social networks includes the following steps:
+
+1. Measure the pairwise distance between each attribute. That is, determine how different each attribute measurement is from every other attribute measurement. So if one jar has a rim that is 3 cm long and another has a rim that is 2 cm long, the difference between the two would be 1 cm. This is done using the Gower distance metric. 
+    + Each measurement is range-normalized to remove scalar effects when different measurement scales (i.e. cm vs. mm vs. degrees) are used. 
+
+2. Convert distances to similarities. Remember, we are interested in how similar any two given site assemblages are based on the potters at each site made their vessels. 
+
+3. Distill individual sherd-to-sherd comparisons into site-to-site comparisons.
+
+4. Calculate proportional pairwise similarity between each site. 
+
+5. Normalize the proportional similarity scores to highlight a weighted, directed relationship model from each site to every other site. 
+
+6. Use a threshold value as a cutoff point to only highlight strong relationships. 
+    + This is a common method used in social network analysis to make graphs more interpretable.
+
+
+Now select one of the networks to explore from the "Networks of Interaction" dropdown menu!
+
+***
+
+If you'd like to learn more, or dive into the technical details alluded to above for this or other sections of this dashboard, please visit [my website](www.andyupton.net) or drop me a line at uptonand@msu.edu  
+
+All of this will be published in my dissertation, which I expect to defend in the Fall of 2018. 
+
+Cheers!
+
+Andy
+
+```{r networksss}
+jar_social <- jars %>%
+                select(Site, MaxWall, RimHeight, RimAngle, MaxTrailing)
+
+plate_social <- plates %>%
+                  select(Site, MaxDiameter, FlareAngle, MaxIncising, MaxTrailing)
+
+# Calculating Gower distance for jars
+jdaisy <- as.matrix(daisy(jar_social[-1], metric = "gower", stand = TRUE))
+
+# Convert matrix of distances to matrix of similarities
+jdaisy_sim <- 1 - jdaisy
+
+# Change from unique sherd i.d. to site name for column and row names
+rownames(jdaisy_sim) <- as.matrix(jars[1])
+colnames(jdaisy_sim) <- as.matrix(jars[1])
+
+# Calculating Gower distance for plates
+pdaisy <- as.matrix(daisy(plate_social[-1], metric = "gower", stand = TRUE))
+
+# Convert matrix of distance to matrix of similarities
+pdaisy_sim <- 1 - pdaisy
+
+# Change from unique sherd i.d. to site name for column and row names 
+rownames(pdaisy_sim) <- as.matrix(plates[1]) 
+colnames(pdaisy_sim) <- as.matrix(plates[1])
+
+# Graph object of jars
+jg <- graph_from_adjacency_matrix(jdaisy_sim, mode = "directed", weighted = TRUE)
+
+# Graph object of plates
+pg <- graph_from_adjacency_matrix(pdaisy_sim, mode = "directed", weighted = TRUE)
+
+# Construct jar weighted edgelist
+jel <- as_edgelist(jg, names = TRUE)
+jweights <- as.numeric(E(jg)$weight)
+jwel <- tbl_df(cbind(jel, jweights))
+colnames(jwel) <- c("Source", "Target", "weight")
+jwel$weight <- as.numeric(jwel$weight)
+
+# Construct plate weighted edgelist
+pel <- as_edgelist(pg, names = TRUE)
+pweights <- as.numeric(E(pg)$weight)
+pwel <- tbl_df(cbind(pel, pweights))
+colnames(pwel) <- c("Source", "Target", "weight")
+pwel$weight <- as.numeric(pwel$weight)
+
+# Proportional similarity of plates
+plate_ps <- pwel %>%
+              group_by(Source, Target) %>%
+              summarise(sum = sum(weight, na.rm = TRUE), n = n()) %>%
+              mutate(Prop_sim = sum/n) 
+
+# Proportional similarity of jars
+jar_ps <- jwel %>%
+              group_by(Source, Target) %>%
+              summarise(sum = sum(weight, na.rm = TRUE), n = n()) %>%
+              mutate(Prop_sim = sum/n) 
+
+# Function to range normalize the proportional similarity weights between 0 and 1
+range01 <- function(x){
+            (x-min(x))/(max(x)-min(x))
+  }
+
+# Range normalize the proportional similarity scores
+range_norm_jar_ps <- jar_ps %>%
+                        na.omit() %>%
+                        group_by(Source) %>%
+                        mutate(Range_prop_sim = range01(Prop_sim))
+        
+range_norm_plate_ps <- plate_ps %>%
+                          na.omit() %>%
+                          group_by(Source) %>%
+                          mutate(Range_prop_sim = range01(Prop_sim))
+
+# Filter to only include scores above 0.5 and remove recursive edges 
+# (i.e. node edges pointing to the node itself)
+range_norm_jar_ps_filt <- range_norm_jar_ps %>%
+                            filter(Range_prop_sim > 0.5) %>%
+                            filter(Source != Target)
+                            
+range_norm_plate_ps_filt <- range_norm_plate_ps %>%
+                              filter(Range_prop_sim > 0.5) %>%
+                              filter(Source != Target)
+
+# Read in tables of jar site names, geographic coords., and time distinction
+# For time, 1 is a primary occupation prior to Oneota in-migration
+# and 2 is a primary occupation succeeding Oneota in-migration
+jar_node_table <- read_csv("Jar_node_table.csv")
+colnames(jar_node_table) <- c("Source", "Label", "Long", "Lat", "Time")
+plate_node_table <- read_csv("Plate_node_table.csv")
+colnames(plate_node_table) <- c("Source", "Label", "Long", "Lat", "Time")
+
+# Join the node table columns to the edgelist, dropping the extra columns used
+# to calculate the range normalized similarity
+jar_t1 <- full_join(range_norm_jar_ps_filt[c(-3:-5)], jar_node_table[-2], by = "Source")
+plate_t1 <- full_join(range_norm_plate_ps_filt[c(-3:-5)], plate_node_table[-2], by = "Source")
+
+# Prepare node tables to join time designation for the target node
+colnames(jar_node_table) <- c("Target", "Label", "Long", "Lat", "Time2")
+colnames(plate_node_table) <- c("Target", "Label", "Long", "Lat", "Time2")
+
+# Join Time 2 column to Target node 
+jar_edgelist_complete <- left_join(jar_t1, jar_node_table[c(-2:-4)], by = "Target")
+plate_edgelist_complete <- left_join(plate_t1, plate_node_table[c(-2:-4)], by = "Target")
+
+# Change "Range_prop_sim" column name to "weight" for Gephi/igraph
+colnames(jar_edgelist_complete) <- c("Source", "Target", "weight", "Long", "Lat", "Time", "Time2")
+colnames(plate_edgelist_complete) <- c("Source", "Target", "weight", "Long", "Lat", "Time", "Time2")
+
+# Write complete edgelists
+# write_excel_csv(jar_edgelist_complete, "jar_edgelist_complete_March2018.csv")
+# write_excel_csv(plate_edgelist_complete, "plate_edgelist_complete_March2018.csv")
+
+# Create Pre- and Post-Migration Edgelists
+jar_pre_el_need_dist <- jar_edgelist_complete %>%
+                        filter(Time == Time2) %>%
+                        filter(Time == 1)
+
+jar_post_el_need_Law <- jar_edgelist_complete %>%
+                         filter(Time == Time2) %>%
+                         filter(Time == 2)
+
+plate_pre_el_need_dist <-  plate_edgelist_complete %>%
+                           filter(Time == Time2) %>%
+                           filter(Time == 1)
+
+plate_post_el_need_Law <- plate_edgelist_complete %>%
+                           filter(Time == Time2) %>%
+                           filter(Time == 2)
+
+# One site, Lawrenz Gun Club, has an occupation in both time periods, so we have to 
+# control for that
+Law_jar_post <- jar_edgelist_complete %>%
+                  filter(Time == 2 & Target == "Lawrenz Gun Club" | 
+                           Source == "Lawrenz Gun Club" & Time2 == 2 ) %>%
+                    mutate(Time = replace(Time, Time==1, 2)) %>%
+                    mutate(Time2 = replace(Time2, Time2==1, 2))
+
+Law_plate_post <- plate_edgelist_complete %>%
+                    filter(Time == 2 & Target == "Lawrenz Gun Club" | 
+                             Source == "Lawrenz Gun Club" & Time2 == 2 ) %>%
+                    mutate(Time = replace(Time, Time==1, 2)) %>%
+                    mutate(Time2 = replace(Time2, Time2==1, 2))
+
+Buck_jar_post <- jar_edgelist_complete %>%
+                  filter(Time == 2 & Target == "Buckeye Bend" | 
+                           Source == "Buckeye Bend" & Time2 == 2 ) %>%
+                    mutate(Time = replace(Time, Time==1, 2)) %>%
+                    mutate(Time2 = replace(Time2, Time2==1, 2))
+
+Buck_plate_post <- plate_edgelist_complete %>%
+                    filter(Time == 2 & Target == "Buckeye Bend" | 
+                             Source == "Buckeye Bend" & Time2 == 2 ) %>%
+                    mutate(Time = replace(Time, Time==1, 2)) %>%
+                    mutate(Time2 = replace(Time2, Time2==1, 2))
+
+# Bind the Lawrenz Gun Club post-migration edges to the post-migration edgelists
+jar_post_el_need_dist <- rbind(jar_post_el_need_Law, Law_jar_post, Buck_jar_post)
+
+plate_post_el_need_dist <- rbind(plate_post_el_need_Law, Law_plate_post, Buck_plate_post)
+
+# Adding geographic coordinates
+# Read in matrix of site distances
+site_distances <- read_csv("Site Distances Matrix in km.csv")
+site_distances <- column_to_rownames(site_distances, var = "X1") #first column of site names to rownames 
+
+# Convert geographic distance matrix to graph object
+distance_g <- graph_from_adjacency_matrix(as.matrix(site_distances), weighted = TRUE, 
+                                                    mode = "directed")
+
+# Convert geo distance graph object to edgelist
+distance_el <- as_edgelist(distance_g)
+distance_el_weight <- as.numeric(E(distance_g)$weight)
+distance_el <- tbl_df(cbind(distance_el, distance_el_weight))
+colnames(distance_el) <- c("Source", "Target", "weight")
+distance_el$Distance <- as.numeric(distance_el$weight)
+
+# Merge the geographic distance edgelist with jar and plate edgelists
+jar_pre_el_complete <-merge(jar_pre_el_need_dist, distance_el[-3])
+jar_post_el_complete <- merge(jar_post_el_need_dist, distance_el[-3])
+plate_pre_el_complete <- merge(plate_pre_el_need_dist, distance_el[-3])
+plate_post_el_complete <- merge(plate_post_el_need_dist, distance_el[-3])
+
+# Combine the pre- and post-migration data sets into a single edgelist
+# Each edgelist will become one layer in a multilayer network analysis
+jar_el_all_time_complete <- rbind(jar_pre_el_complete, jar_post_el_complete)
+plate_el_all_time_complete <- rbind(plate_pre_el_complete, plate_post_el_complete)
+
+# Create new edgelists with just the Source, Target, and weight colummns
+# Need to order the edges by ascending weight to properly color them in the visualization
+jelvis <- arrange(jar_el_all_time_complete[1:3], weight)
+jelprevis <- arrange(jar_pre_el_complete[1:3], weight)
+jelpostvis <- arrange(jar_post_el_complete[1:3], weight)
+pelvis <- arrange(plate_el_all_time_complete[1:3], weight)
+pelprevis <- arrange(plate_pre_el_complete[1:3], weight)
+pelpostvis <- arrange(plate_post_el_complete[1:3], weight)
+
+# Convert character columns to factor to enable plotting features
+cols <- c(1, 2)
+jelvis[cols] <- lapply(jelvis[cols], factor)
+jelprevis[cols] <- lapply(jelprevis[cols], factor)
+jelpostvis[cols] <- lapply(jelpostvis[cols], factor)
+pelvis[cols] <- lapply(pelvis[cols], factor)
+pelprevis[cols] <- lapply(pelprevis[cols], factor)
+pelpostvis[cols] <- lapply(pelpostvis[cols], factor)
+
+# igraph objects from edgelist dataframes
+jgvis <- graph_from_data_frame(jelvis, directed = TRUE)
+jgprevis <- graph_from_data_frame(jelprevis, directed = TRUE)
+jgpostvis <- graph_from_data_frame(jelpostvis, directed = TRUE)
+pgvis <- graph_from_data_frame(pelvis, directed = TRUE)
+pgprevis <- graph_from_data_frame(pelprevis, directed = TRUE)
+pgpostvis <- graph_from_data_frame(pelpostvis, directed = TRUE)
+
+# Create warm color scale function for edges (too many edges for a color palette)
+# Yellow is a weaker tie while red is a stronger tie
+# Since the edge lists are arranged by ascending weight, each edge will get a unique
+# color value commensurate with its value (lower weights will be more yellow, higher more red).
+colfunc <- colorRampPalette(c("yellow", "orange", "red"))
+
+# Create a vector of sizes for the vertices' labels
+vsizejall <- rep.int(.25, 18)
+vsizejpre <- rep.int(.25, 12)
+vsizejpost <- rep.int(.25, 8)
+vsizeppre <- rep.int(.25, 11)
+vsizeppost <- rep.int(.25, 7)
+vsizepall <- rep.int(.25, 16)
+
+# colfunction is used to create a color scale for the edges
+# Vertex "shapes" derive from their names in the igraph object
+# Multiple edge widths are not supported yet, so only color is used to infer strength of tie
+
+# Animation of Jar Network Across time
+# graphjs(jgvis,  layout = list(layout_with_fr(jgvis, dim = 3), 
+#                              layout_with_fr(jgvis, dim = 3)),
+#        edge.color = colfunc(112), edge.width = 2.5, vertex.shape = V(jgvis)$name,
+#        vertex.size = vsizejall, edge.alpha = 0.7, fpl = 1000) 
+```
+
+
+Jar Pre-Migration Network (1200-1300 A.D.) {.storyboard data-navmenu="Networks of Interaction"}
+======================================================================
+### Interactive 3D Jar Pre-Migration Network (1200-1300 A.D.) 
+
+```{r}
+# -----Graph of pre-migration jars-----
+graphjs(jgprevis, edge.color = colfunc(81), edge.width = 2.5, 
+                    vertex.shape = V(jgprevis)$name, vertex.size = vsizejpre, 
+                    edge.alpha = 0.7) 
+```
+
+### Geographic Jar Pre-Migration Network (1200-1300 A.D.)
+![Geographic Jar Pre-Migration Network (1200-1300 A.D.)](Jar_pre-migration heat-Closeness Centrality_geographic.png)
+
+### Jar Pre-Migration Network (1200-1300 A.D.)
+![Jar Pre-Migration Network (1200-1300 A.D.) - Yifan Hu Layout](Jar_pre-migration_Yifan Hu_Node closeness centrality.png)
+
+Jar Post-Migration Network (1300-1450 A.D.) {.storyboard data-navmenu="Networks of Interaction"}
+======================================================================
+### Interactive 3D Jar Post-Migration Network (1300-1450 A.D.)
+
+```{r}
+# -----Graph of post-migration jars-----
+graphjs(jgpostvis, edge.color = colfunc(40), edge.width = 2.5, 
+                    vertex.shape = V(jgpostvis)$name, vertex.size = vsizejpost, 
+                    edge.alpha = 0.7)  
+
+```
+
+### Geographic Jar Post-Migration Network (1300-1450 A.D.)
+![Geographic Jar Pre-Migration Network (1300-1450 A.D.)](Jar_post-migration_geographic closeness centrality.png) 
+
+### Jar Post-Migration Network (1300-1450 A.D.)
+![Jar Pre-Migration Network (1300-1450 A.D.) - Yifan Hu Layout](Jar_post-migration_Yifan Hu_Node closeness centrality.png) 
+
+Jar Network Across Time (1200 - 1450 A.D.) {.storyboard data-navmenu="Networks of Interaction"}
+======================================================================
+### Interactive 3D Jar Network Across Time (1200 - 1450 A.D.) 
+
+```{r}
+# -----Graph of jars across time------
+graphjs(jgvis, edge.color = colfunc(121), edge.width = 2.5, 
+                vertex.shape = V(jgvis)$name, vertex.size = vsizejall, 
+                edge.alpha = 0.7) 
+```
+
+### Geographic Jar Network Across Time (1200 - 1450 A.D.) 
+![Geographic Jar Network Flattened Across Time (1200 - 1450 A.D.)](Jar_flattened_geographic weighted degree.png)  
+
+### Jar Network Across Time (1200 - 1450 A.D.) 
+![Jar Network Flattened Across Time (1200 - 1450 A.D.) - Yifan Hu Layout](Jar_flattened_Yifan Hu_Node weighted degree.png)  
+
+
+Plate Pre-Migration Network (1200-1300 A.D.) {.storyboard data-navmenu="Networks of Interaction"}
+======================================================================
+### Interactive 3D Plate Pre-Migration Network (1200-1300 A.D.)
+
+```{r}
+# ------Graph of pre-migration plates------
+graphjs(pgprevis, edge.width = 2.5, edge.color = colfunc(63), 
+                    vertex.shape = V(pgprevis)$name, vertex.size = vsizeppre, 
+                    edge.alpha = 0.7) 
+```
+
+### Geographic Plate Pre-Migration Network (1200-1300 A.D.)
+![Geographic Plate Pre-Migration Network (1200-1300 A.D.)](Plate_pre-migration heat-Closeness Centrality.png)
+
+### Plate Pre-Migration Network (1200-1300 A.D.)
+![Plate Pre-Migration Network (1200-1300 A.D.)](Plate Pre-Migration Yifan Hu.png)
+
+Plate Post-Migration Network (1300-1450 A.D.) {.storyboard data-navmenu="Networks of Interaction"}
+======================================================================
+### Interactive 3D Plate Post-Migration Network (1300-1450 A.D.)
+
+```{r}
+# ------Graph of post-migration plates------
+graphjs(pgpostvis, edge.width = 2.5, edge.color = colfunc(38), 
+                    vertex.shape = V(pgpostvis)$name, vertex.size = vsizeppost, 
+                    edge.alpha = 0.7) 
+```
+
+
+### Geographic Plate Post-Migration Network (1300-1450 A.D.)
+![Geographic Plate Post-Migration Network (1300-1450 A.D.)](Plate post-migration geographic weighted degree.png)
+
+### Plate Post-Migration Network (1300-1450 A.D.)
+![Plate Post-Migration Network (1300-1450 A.D.) - Yifan Hu Layout](plate_post-migration_Yifan Hu weighted degree.svg.png)
+
+Plate Network Across Time (1200 - 1450 A.D.) {.storyboard data-navmenu="Networks of Interaction"}
+======================================================================
+### Interactive 3D Plate Network Across Time (1200 - 1450 A.D.)
+
+```{r}
+# ------Graph of plates across time------
+graphjs(pgvis, edge.width = 2.5, edge.color = colfunc(101), 
+                vertex.shape = V(pgvis)$name, vertex.size = vsizepall, 
+                edge.alpha = 0.7) 
+```
+
+### Geographic Plate Network Across Time (1200 - 1450 A.D.) 
+![Geographic Plate Network Flattened Across Time (1200 - 1450 A.D.)](plate_flattened_geographic closeness centrality.png) 
+
+### Plate Network Across Time (1200 - 1450 A.D.) 
+![Plate Network Flattened Across Time (1200 - 1450 A.D.) - Yifan Hu Layout](plate_flattened_Yifan Hu_Node closeness centrality.png) 
+
+
+<style>
+
+  .storyboard-nav .sbframelist {
+        margin: 0 auto;
+        width: 94%;
+        height: 60px;
+        overflow: hidden;
+        text-shadow: none;
+        margin-bottom: 8px;
+    }
+
+  .storyboard-nav .sbnext, .storyboard-nav .sbprev {
+        float: left;
+        width: 2%;
+        height: 60px;
+        font-size: 50px;
+    }
+
+</style>
 
