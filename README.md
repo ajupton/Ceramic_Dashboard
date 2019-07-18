@@ -1,5 +1,5 @@
 # Ceramic_Dashboard
-Dashboard showing ceramic EDA and interaction network construction in the Late Prehistoric Central Illinois River Valley (CIRV). (To learn more about the Late Prehistoric CIRV, take a look at The Mississippian Period and The Late Mississippian Period in this pdf document.)[http://www.museum.state.il.us/iaaa/pubs/DIA.pdf] 
+Dashboard showing ceramic EDA and interaction network construction in the Late Prehistoric Central Illinois River Valley (CIRV). [To learn more about the Late Prehistoric CIRV, take a look at The Mississippian Period and The Late Mississippian Period in this pdf document.](http://www.museum.state.il.us/iaaa/pubs/DIA.pdf)
 
 This flexdashboard is a companion to Chapter 6 of the recently completed dissertation by Andrew Upton at Michigan State University. 
 
